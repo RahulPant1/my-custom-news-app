@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Dashboard - News Digest</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .header p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 6px;
+        }
+        
+        .nav-links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .nav-links a:hover {
+            background: #0056b3;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007bff;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .section h2 {
+            margin: 0 0 20px 0;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .form-control, .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+            box-sizing: border-box;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            margin-top: 10px;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+        
+        .selection-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .selection-controls button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .articles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .articles-table th,
+        .articles-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .articles-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .articles-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .article-checkbox {
+            margin-right: 8px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #007bff;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 4px;
+        }
+        
+        .badge-secondary {
+            background: #6c757d;
+        }
+        
+        .badge-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .badge-success {
+            background: #28a745;
+        }
+        
+        .status {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close:hover {
+            color: #007bff;
+        }
+        
+        .article-detail-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .article-detail-section h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .article-detail-section p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        
+        .article-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .nav-links a {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .selection-controls {
+                flex-direction: column;
+            }
+            
+            .articles-table {
+                font-size: 14px;
+            }
+            
+            .articles-table th,
+            .articles-table td {
+                padding: 8px;
+            }
+            
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+                max-height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📰 Articles Dashboard</h1>
+            <p>Review and manage all collected articles with AI reprocessing capabilities</p>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">🏠 Home</a>
+            <a href="{{ url_for('user_management') }}">👥 Users</a>
+            <a href="{{ url_for('create_user') }}">➕ Add User</a>
+            <a href="{{ url_for('operations') }}">⚙️ Operations</a>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-box">
+                <span class="stat-number">{{ articles|length }}</span>
+                <div class="stat-label">Total Articles</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">{{ by_category|length }}</span>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">{{ articles|selectattr('image_url')|list|length }}</span>
+                <div class="stat-label">With Images</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">{{ articles|selectattr('trending_flag')|list|length }}</span>
+                <div class="stat-label">Trending</div>
+            </div>
+        </div>
+        
+        <!-- AI Reprocessing Section -->
+        <div class="section">
+            <h2>🤖 AI Reprocessing</h2>
+            
+            <div class="selection-controls">
+                <button onclick="selectAll()" class="btn-secondary">Select All</button>
+                <button onclick="selectNone()" class="btn-secondary">Select None</button>
+                <button onclick="selectNoAI()" class="btn-secondary">Select No AI Categories</button>
+                <button onclick="selectNoSummary()" class="btn-secondary">Select No AI Summary</button>
+            </div>
+            
+            <div class="form-group">
+                <label>Reprocessing Options</label>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; margin: 0;">
+                        <input type="checkbox" id="reprocessCategories" checked style="margin-right: 8px;">
+                        Regenerate AI Categories
+                    </label>
+                    <label style="display: flex; align-items: center; margin: 0;">
+                        <input type="checkbox" id="reprocessSummaries" checked style="margin-right: 8px;">
+                        Regenerate AI Summaries
+                    </label>
+                    <label style="display: flex; align-items: center; margin: 0;">
+                        <input type="checkbox" id="reprocessTrending" style="margin-right: 8px;">
+                        Update Trending Status
+                    </label>
+                </div>
+            </div>
+            
+            <button onclick="reprocessSelected()" class="btn btn-warning" id="reprocessBtn">
+                🔄 Reprocess Selected Articles
+            </button>
+            
+            <div id="reprocessStatus" class="status"></div>
+        </div>
+        
+        <!-- Filters and Controls -->
+        <div class="section">
+            <h2>🔍 Filters & Controls</h2>
+            
+            <div class="controls-grid">
+                <div class="form-group">
+                    <label for="sortBy">Sort by:</label>
+                    <select class="form-select" id="sortBy" onchange="applySorting()">
+                        <option value="date_collected|desc">Date Collected (Newest)</option>
+                        <option value="date_collected|asc">Date Collected (Oldest)</option>
+                        <option value="publication_date|desc">Publication Date (Newest)</option>
+                        <option value="publication_date|asc">Publication Date (Oldest)</option>
+                        <option value="title|asc">Title (A-Z)</option>
+                        <option value="title|desc">Title (Z-A)</option>
+                        <option value="author|asc">Author (A-Z)</option>
+                        <option value="id|desc">ID (Highest)</option>
+                        <option value="id|asc">ID (Lowest)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filterCategory">Filter by Category:</label>
+                    <select class="form-select" id="filterCategory" onchange="applySorting()">
+                        <option value="">All Categories</option>
+                        {% for category in by_category.keys() %}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="showImages">Filter by Images:</label>
+                    <select class="form-select" id="showImages" onchange="applySorting()">
+                        <option value="">All Articles</option>
+                        <option value="with">With Images Only</option>
+                        <option value="without">Without Images Only</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Table -->
+        <div class="section">
+            <h2>📄 Articles List</h2>
+            
+            <div id="selectedInfo" style="margin-bottom: 15px; color: #6c757d; font-size: 14px;">
+                <span id="selectedCount">0</span> articles selected
+            </div>
+            
+            <table class="articles-table" id="articlesTable">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll()" class="article-checkbox">
+                            Select
+                        </th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Categories</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Image</th>
+                        <th>AI Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="articlesTableBody">
+                    {% for article in articles[:100] %}
+                    <tr data-article-id="{{ article.id }}">
+                        <td>
+                            <input type="checkbox" class="article-checkbox article-select" 
+                                   onchange="updateSelectedCount()" value="{{ article.id }}">
+                        </td>
+                        <td><span class="badge badge-secondary">{{ article.id }}</span></td>
+                        <td>
+                            <a href="{{ article.source_link }}" target="_blank" style="text-decoration: none; color: #007bff;">
+                                {{ article.title[:60] }}{% if article.title|length > 60 %}...{% endif %}
+                            </a>
+                        </td>
+                        <td>
+                            {% if article.rss_category %}
+                            <div style="margin-bottom: 4px;">
+                                <small style="color: #6c757d;">RSS:</small>
+                                <span class="badge badge-secondary">{{ article.rss_category }}</span>
+                            </div>
+                            {% endif %}
+                            
+                            {% if article.ai_categories %}
+                            <div>
+                                <small style="color: #6c757d;">AI:</small>
+                                {% for cat in article.ai_categories[:2] %}
+                                <span class="badge">{{ cat }}</span>
+                                {% endfor %}
+                                {% if article.ai_categories|length > 2 %}
+                                <span class="badge badge-secondary">+{{ article.ai_categories|length - 2 }}</span>
+                                {% endif %}
+                            </div>
+                            {% else %}
+                            <span class="badge badge-warning">No AI Categories</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ article.author[:20] if article.author else 'N/A' }}</td>
+                        <td>{{ article.publication_date.split(' ')[0] if article.publication_date else 'N/A' }}</td>
+                        <td>
+                            {% if article.image_url %}
+                            <span class="badge badge-success">✓</span>
+                            {% else %}
+                            <span style="color: #6c757d;">—</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                {% if article.ai_categories %}
+                                <span class="badge badge-success" title="Has AI Categories">Cat</span>
+                                {% else %}
+                                <span class="badge badge-warning" title="Missing AI Categories">Cat</span>
+                                {% endif %}
+                                
+                                {% if article.ai_summary %}
+                                <span class="badge badge-success" title="Has AI Summary">Sum</span>
+                                {% else %}
+                                <span class="badge badge-warning" title="Missing AI Summary">Sum</span>
+                                {% endif %}
+                                
+                                {% if article.trending_flag %}
+                                <span class="badge badge-warning" title="Trending">🔥</span>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn btn-small" onclick="viewArticle({{ article.id }})"
+                                    title="View article details">
+                                👁️ View
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            {% if articles|length > 100 %}
+            <div style="text-align: center; margin-top: 20px; color: #6c757d;">
+                <em>Showing first 100 of {{ articles|length }} articles. Use filters to narrow down results.</em>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Article Details Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3>📰 Article Details</h3>
+                <span class="close" onclick="closeArticleModal()">&times;</span>
+            </div>
+            <div id="articleDetails">
+                <!-- Article details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allArticles = {{ articles|tojson }};
+        let originalArticles = [...allArticles];
+        let selectedArticles = [];
+        
+        // Selection management
+        function updateSelectedCount() {
+            const checkboxes = document.querySelectorAll('.article-select:checked');
+            selectedArticles = Array.from(checkboxes).map(cb => parseInt(cb.value));
+            document.getElementById('selectedCount').textContent = selectedArticles.length;
+            
+            // Update select all checkbox
+            const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+            const allCheckboxes = document.querySelectorAll('.article-select');
+            selectAllCheckbox.indeterminate = selectedArticles.length > 0 && selectedArticles.length < allCheckboxes.length;
+            selectAllCheckbox.checked = selectedArticles.length === allCheckboxes.length;
+        }
+        
+        function toggleSelectAll() {
+            const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+            const articleCheckboxes = document.querySelectorAll('.article-select');
+            
+            articleCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+            
+            updateSelectedCount();
+        }
+        
+        function selectAll() {
+            const articleCheckboxes = document.querySelectorAll('.article-select');
+            articleCheckboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateSelectedCount();
+        }
+        
+        function selectNone() {
+            const articleCheckboxes = document.querySelectorAll('.article-select');
+            articleCheckboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateSelectedCount();
+        }
+        
+        function selectNoAI() {
+            selectNone();
+            const rows = document.querySelectorAll('#articlesTableBody tr');
+            rows.forEach(row => {
+                const articleId = parseInt(row.getAttribute('data-article-id'));
+                const article = allArticles.find(a => a.id === articleId);
+                if (article && (!article.ai_categories || article.ai_categories.length === 0)) {
+                    const checkbox = row.querySelector('.article-select');
+                    checkbox.checked = true;
+                }
+            });
+            updateSelectedCount();
+        }
+        
+        function selectNoSummary() {
+            selectNone();
+            const rows = document.querySelectorAll('#articlesTableBody tr');
+            rows.forEach(row => {
+                const articleId = parseInt(row.getAttribute('data-article-id'));
+                const article = allArticles.find(a => a.id === articleId);
+                if (article && (!article.ai_summary || article.ai_summary.trim() === '')) {
+                    const checkbox = row.querySelector('.article-select');
+                    checkbox.checked = true;
+                }
+            });
+            updateSelectedCount();
+        }
+        
+        // AI Reprocessing
+        async function reprocessSelected() {
+            if (selectedArticles.length === 0) {
+                alert('Please select at least one article to reprocess.');
+                return;
+            }
+            
+            const reprocessCategories = document.getElementById('reprocessCategories').checked;
+            const reprocessSummaries = document.getElementById('reprocessSummaries').checked;
+            const reprocessTrending = document.getElementById('reprocessTrending').checked;
+            
+            if (!reprocessCategories && !reprocessSummaries && !reprocessTrending) {
+                alert('Please select at least one reprocessing option.');
+                return;
+            }
+            
+            if (!confirm(`Reprocess ${selectedArticles.length} selected articles?\\n\\nThis may take several minutes for large batches.`)) {
+                return;
+            }
+            
+            const btn = document.getElementById('reprocessBtn');
+            const status = document.getElementById('reprocessStatus');
+            
+            // Update UI
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Reprocessing...';
+            status.className = 'status info';
+            status.style.display = 'block';
+            status.innerHTML = `🔄 Reprocessing ${selectedArticles.length} articles...`;
+            
+            try {
+                const response = await fetch('/api/reprocess-articles', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        article_ids: selectedArticles,
+                        reprocess_categories: reprocessCategories,
+                        reprocess_summaries: reprocessSummaries,
+                        reprocess_trending: reprocessTrending
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    status.className = 'status success';
+                    status.innerHTML = `✅ ${result.message}`;
+                    
+                    // Refresh the page after a delay
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    status.className = 'status error';
+                    status.innerHTML = `❌ ${result.message}`;
+                }
+                
+            } catch (error) {
+                status.className = 'status error';
+                status.innerHTML = `❌ Error: ${error.message}`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '🔄 Reprocess Selected Articles';
+            }
+        }
+        
+        // Filtering and sorting
+        function applySorting() {
+            const sortBy = document.getElementById('sortBy').value;
+            const filterCategory = document.getElementById('filterCategory').value;
+            const showImages = document.getElementById('showImages').value;
+            
+            let filteredArticles = [...originalArticles];
+            
+            // Apply category filter
+            if (filterCategory) {
+                filteredArticles = filteredArticles.filter(article => 
+                    article.ai_categories && article.ai_categories.includes(filterCategory)
+                );
+            }
+            
+            // Apply image filter
+            if (showImages === 'with') {
+                filteredArticles = filteredArticles.filter(article => article.image_url);
+            } else if (showImages === 'without') {
+                filteredArticles = filteredArticles.filter(article => !article.image_url);
+            }
+            
+            // Apply sorting
+            const [field, direction] = sortBy.split('|');
+            filteredArticles.sort((a, b) => {
+                let aVal = a[field] || '';
+                let bVal = b[field] || '';
+                
+                // Handle numeric fields
+                if (field === 'id') {
+                    aVal = parseInt(aVal) || 0;
+                    bVal = parseInt(bVal) || 0;
+                }
+                
+                // Handle date fields
+                if (field.includes('date')) {
+                    aVal = new Date(aVal || 0);
+                    bVal = new Date(bVal || 0);
+                }
+                
+                if (direction === 'asc') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+            
+            // Update the table
+            updateArticlesTable(filteredArticles);
+            
+            // Update stats
+            updateStats(filteredArticles);
+        }
+        
+        function updateArticlesTable(articles) {
+            const tbody = document.getElementById('articlesTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = articles.slice(0, 100).map(article => `
+                <tr data-article-id="${article.id}">
+                    <td>
+                        <input type="checkbox" class="article-checkbox article-select" 
+                               onchange="updateSelectedCount()" value="${article.id}">
+                    </td>
+                    <td><span class="badge badge-secondary">${article.id}</span></td>
+                    <td>
+                        <a href="${article.source_link}" target="_blank" style="text-decoration: none; color: #007bff;">
+                            ${article.title.length > 60 ? article.title.substring(0, 60) + '...' : article.title}
+                        </a>
+                    </td>
+                    <td>
+                        ${article.rss_category ? `
+                            <div style="margin-bottom: 4px;">
+                                <small style="color: #6c757d;">RSS:</small>
+                                <span class="badge badge-secondary">${article.rss_category}</span>
+                            </div>
+                        ` : ''}
+                        
+                        ${article.ai_categories && article.ai_categories.length ? `
+                            <div>
+                                <small style="color: #6c757d;">AI:</small>
+                                ${article.ai_categories.slice(0, 2).map(cat => `<span class="badge">${cat}</span>`).join('')}
+                                ${article.ai_categories.length > 2 ? `<span class="badge badge-secondary">+${article.ai_categories.length - 2}</span>` : ''}
+                            </div>
+                        ` : '<span class="badge badge-warning">No AI Categories</span>'}
+                    </td>
+                    <td>${article.author ? (article.author.length > 20 ? article.author.substring(0, 20) + '...' : article.author) : 'N/A'}</td>
+                    <td>${article.publication_date ? article.publication_date.split(' ')[0] : 'N/A'}</td>
+                    <td>
+                        ${article.image_url ? '<span class="badge badge-success">✓</span>' : '<span style="color: #6c757d;">—</span>'}
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                            ${article.ai_categories && article.ai_categories.length ? 
+                                '<span class="badge badge-success" title="Has AI Categories">Cat</span>' : 
+                                '<span class="badge badge-warning" title="Missing AI Categories">Cat</span>'
+                            }
+                            ${article.ai_summary ? 
+                                '<span class="badge badge-success" title="Has AI Summary">Sum</span>' : 
+                                '<span class="badge badge-warning" title="Missing AI Summary">Sum</span>'
+                            }
+                            ${article.trending_flag ? '<span class="badge badge-warning" title="Trending">🔥</span>' : ''}
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-small" onclick="viewArticle(${article.id})"
+                                title="View article details">
+                            👁️ View
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+            
+            // Clear selections after table update
+            selectedArticles = [];
+            updateSelectedCount();
+        }
+        
+        function updateStats(articles) {
+            // Update stats in the quick stats section
+            const statBoxes = document.querySelectorAll('.stat-number');
+            if (statBoxes[0]) statBoxes[0].textContent = articles.length;
+            if (statBoxes[2]) statBoxes[2].textContent = articles.filter(a => a.image_url).length;
+            if (statBoxes[3]) statBoxes[3].textContent = articles.filter(a => a.trending_flag).length;
+        }
+        
+        // Article viewing functions
+        function viewArticle(articleId) {
+            const article = allArticles.find(a => a.id === articleId);
+            if (!article) {
+                alert('Article not found');
+                return;
+            }
+            
+            // Format categories
+            let categoriesHtml = '';
+            if (article.rss_category) {
+                categoriesHtml += `<p><strong>RSS Category:</strong> <span class="badge badge-secondary">${article.rss_category}</span></p>`;
+            }
+            if (article.ai_categories && article.ai_categories.length > 0) {
+                const categoryBadges = article.ai_categories.map(cat => `<span class="badge">${cat}</span>`).join(' ');
+                categoriesHtml += `<p><strong>AI Categories:</strong> ${categoryBadges}</p>`;
+            }
+            
+            // Format image
+            let imageHtml = '';
+            if (article.image_url) {
+                imageHtml = `
+                    <div class="article-detail-section">
+                        <h4>🖼️ Article Image</h4>
+                        <img src="${article.image_url}" alt="Article image" class="article-image" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <p style="display: none; color: #dc3545;">Image failed to load: ${article.image_url}</p>
+                    </div>
+                `;
+            }
+            
+            // Format summaries
+            let summariesHtml = '';
+            if (article.original_summary) {
+                summariesHtml += `
+                    <div class="article-detail-section">
+                        <h4>📄 Original Summary</h4>
+                        <p>${article.original_summary}</p>
+                    </div>
+                `;
+            }
+            if (article.ai_summary) {
+                summariesHtml += `
+                    <div class="article-detail-section">
+                        <h4>🤖 AI Summary</h4>
+                        <p>${article.ai_summary}</p>
+                    </div>
+                `;
+            }
+            
+            // Format metadata
+            const metadata = [
+                `<strong>Article ID:</strong> ${article.id}`,
+                `<strong>Author:</strong> ${article.author || 'Not specified'}`,
+                `<strong>Publication Date:</strong> ${article.publication_date || 'Not specified'}`,
+                `<strong>Date Collected:</strong> ${article.date_collected || 'Not specified'}`,
+                `<strong>Trending:</strong> ${article.trending_flag ? '🔥 Yes' : 'No'}`,
+                `<strong>Source:</strong> <a href="${article.source_link}" target="_blank" rel="noopener">${article.source_link}</a>`
+            ].join('<br>');
+            
+            const detailsHtml = `
+                <div class="article-detail-section">
+                    <h4>📰 ${article.title}</h4>
+                    ${categoriesHtml}
+                </div>
+                
+                ${imageHtml}
+                
+                ${summariesHtml}
+                
+                <div class="article-detail-section">
+                    <h4>📊 Article Metadata</h4>
+                    <p>${metadata}</p>
+                </div>
+            `;
+            
+            document.getElementById('articleDetails').innerHTML = detailsHtml;
+            document.getElementById('articleModal').style.display = 'block';
+        }
+        
+        function closeArticleModal() {
+            document.getElementById('articleModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('articleModal');
+            if (event.target === modal) {
+                closeArticleModal();
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSelectedCount();
+        });
+    </script>
+</body>
+</html>

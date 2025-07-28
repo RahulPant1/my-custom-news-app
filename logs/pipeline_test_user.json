@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2025-07-26T23:53:01.481980",
+    "message": "Test log message",
+    "status": "running",
+    "step": "Test Phase",
+    "formatted": "[23:53:01] Test log message"
+  },
+  {
+    "timestamp": "2025-07-26T23:53:01.482112",
+    "message": "Test successful",
+    "status": "success",
+    "step": "Test Complete",
+    "formatted": "[23:53:01] Test successful"
+  }
+]

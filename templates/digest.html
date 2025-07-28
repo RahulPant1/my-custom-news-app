@@ -1,0 +1,98 @@
+
+{% extends "base.html" %}
+{% block title %}News Digest{% endblock %}
+{% block content %}
+    <div class="digest-container">
+        <h1>📰 Your News Digest for {{ user_id }}</h1>
+        
+        {% if digest and digest.categories %}
+            {% for category, articles in digest.categories.items() %}
+                <div class="category-section">
+                    <h2 class="category-title">{{ category }}</h2>
+                    {% for article in articles %}
+                        <div class="article-card">
+                            <h3 class="article-title">
+                                <a href="{{ article.source_link }}" target="_blank">{{ article.title }}</a>
+                            </h3>
+                            {% if article.author %}
+                                <p class="article-meta">By {{ article.author }}</p>
+                            {% endif %}
+                            <p class="article-summary">{{ article.ai_summary or article.original_summary }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-content">
+                <p>No articles found for this user. Please check if:</p>
+                <ul>
+                    <li>The user has selected categories</li>
+                    <li>There are articles in the database</li>
+                    <li>The user ID exists</li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    <style>
+        .digest-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .category-section {
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        
+        .category-title {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .article-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .article-title {
+            margin: 0 0 10px 0;
+        }
+        
+        .article-title a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+        
+        .article-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .article-meta {
+            color: #666;
+            font-size: 14px;
+            margin: 0 0 10px 0;
+            font-style: italic;
+        }
+        
+        .article-summary {
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .no-content {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+{% endblock %}

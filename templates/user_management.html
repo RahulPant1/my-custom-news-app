@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - News Digest</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .header p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 6px;
+        }
+        
+        .nav-links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .nav-links a:hover {
+            background: #0056b3;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007bff;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .section h2 {
+            margin: 0 0 20px 0;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .action-btn:hover {
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .action-btn.success {
+            background: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+        
+        .action-btn.success:hover {
+            background: #1e7e34;
+            border-color: #1e7e34;
+        }
+        
+        .search-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .users-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        
+        .users-table th,
+        .users-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .users-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .users-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .user-id {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .user-email {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .categories-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .category-tag {
+            background: #007bff;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .last-digest {
+            font-size: 0.9rem;
+        }
+        
+        .status-never {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        
+        .status-recent {
+            color: #28a745;
+            font-weight: 600;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        
+        .empty-state h3 {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close:hover {
+            color: #007bff;
+        }
+        
+        .status {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .nav-links a {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .users-table {
+                font-size: 14px;
+            }
+            
+            .users-table th,
+            .users-table td {
+                padding: 8px;
+            }
+            
+            .user-actions {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>👥 User Management</h1>
+            <p>Manage user accounts, preferences, and perform bulk operations</p>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">🏠 Home</a>
+            <a href="{{ url_for('create_user') }}">➕ Add User</a>
+            <a href="{{ url_for('operations') }}">⚙️ Operations</a>
+            <a href="{{ url_for('articles_dashboard') }}">📰 Articles</a>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-box">
+                <span class="stat-number">{{ users|length }}</span>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">{{ users|selectattr('email')|list|length }}</span>
+                <div class="stat-label">With Email</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">{{ categories|length if categories else 10 }}</span>
+                <div class="stat-label">Categories Available</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number" id="active-users">-</span>
+                <div class="stat-label">Recently Active</div>
+            </div>
+        </div>
+        
+        <!-- Bulk Operations -->
+        <div class="section">
+            <h2>🛠️ Bulk Operations</h2>
+            
+            <div class="action-buttons">
+                <a href="{{ url_for('create_user') }}" class="action-btn success">
+                    ➕ Add New User
+                </a>
+                <button onclick="exportUsers()" class="action-btn">
+                    📥 Export Users
+                </button>
+                <button onclick="bulkEmail()" class="action-btn">
+                    📧 Send All Emails
+                </button>
+                <button onclick="refreshData()" class="action-btn">
+                    🔄 Refresh Data
+                </button>
+            </div>
+        </div>
+        
+        <!-- User Management -->
+        <div class="section">
+            <h2>👤 User Directory</h2>
+            
+            <div class="search-controls">
+                <input type="text" 
+                       id="searchInput" 
+                       class="search-input" 
+                       placeholder="Search users by name or email...">
+                <button onclick="searchUsers()" class="btn">
+                    🔍 Search
+                </button>
+            </div>
+            
+            {% if users %}
+            <table class="users-table" id="usersTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Email</th>
+                        <th>Categories</th>
+                        <th>Last Digest</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr data-user-id="{{ user.user_id }}">
+                        <td>
+                            <div class="user-id">{{ user.user_id }}</div>
+                        </td>
+                        <td>
+                            <div class="user-email">{{ user.email or 'Not set' }}</div>
+                        </td>
+                        <td>
+                            <div class="categories-list">
+                                {% for category in user.categories[:3] %}
+                                <span class="category-tag">{{ category }}</span>
+                                {% endfor %}
+                                {% if user.categories|length > 3 %}
+                                <span class="category-tag">+{{ user.categories|length - 3 }} more</span>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            <span class="last-digest {% if user.last_digest == 'Never' %}status-never{% else %}status-recent{% endif %}">
+                                {{ user.last_digest or 'Never' }}
+                            </span>
+                        </td>
+                        <td>
+                            <div class="user-actions">
+                                <a href="/digest/{{ user.user_id }}" class="btn btn-small">
+                                    📖 View
+                                </a>
+                                <a href="/email-preview/{{ user.user_id }}" class="btn btn-secondary btn-small">
+                                    📧 Preview
+                                </a>
+                                {% if user.email %}
+                                <button data-action="send-email" 
+                                        data-user-id="{{ user.user_id }}" 
+                                        class="btn btn-success btn-small">
+                                    📤 Send
+                                </button>
+                                {% endif %}
+                                <button data-action="edit-user" 
+                                        data-user-id="{{ user.user_id }}" 
+                                        class="btn btn-secondary btn-small">
+                                    ✏️ Edit
+                                </button>
+                                <button data-action="delete-user" 
+                                        data-user-id="{{ user.user_id }}" 
+                                        class="btn btn-danger btn-small">
+                                    🗑️ Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="empty-state">
+                <h3>No Users Found</h3>
+                <p>Start by creating your first user account.</p>
+                <a href="{{ url_for('create_user') }}" class="btn" style="margin-top: 15px;">➕ Create First User</a>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Status Messages -->
+        <div id="statusMessage" class="status"></div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🗑️ Confirm Deletion</h3>
+                <span class="close" data-action="close-modal" data-modal-id="deleteModal">&times;</span>
+            </div>
+            <div>
+                <p>Are you sure you want to delete user <strong id="deleteUserName"></strong>?</p>
+                <p style="color: #dc3545; font-size: 0.9rem;">This action cannot be undone. All user data and preferences will be permanently removed.</p>
+            </div>
+            <div style="display: flex; gap: 15px; justify-content: flex-end; margin-top: 20px;">
+                <button data-action="close-modal" 
+                        data-modal-id="deleteModal" 
+                        class="btn btn-secondary btn-small">
+                    Cancel
+                </button>
+                <button data-action="confirm-delete" 
+                        class="btn btn-danger btn-small" 
+                        id="confirmDeleteBtn">
+                    Delete User
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        function searchUsers() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#usersTable tbody tr');
+            
+            rows.forEach(row => {
+                const userId = row.querySelector('.user-id').textContent.toLowerCase();
+                const email = row.querySelector('.user-email').textContent.toLowerCase();
+                
+                if (userId.includes(searchTerm) || email.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Real-time search
+        document.getElementById('searchInput')?.addEventListener('input', searchUsers);
+
+        // Bulk operations
+        function bulkEmail() {
+            if (!confirm('Send digest emails to all users with email addresses?')) return;
+            showStatus('Bulk email functionality coming soon!', 'info');
+        }
+
+        function exportUsers() {
+            const headers = ['User ID', 'Email', 'Categories', 'Last Digest'];
+            const rows = Array.from(document.querySelectorAll('#usersTable tbody tr')).map(row => {
+                const cells = row.querySelectorAll('td');
+                return [
+                    cells[0].querySelector('.user-id').textContent,
+                    cells[1].querySelector('.user-email').textContent,
+                    Array.from(cells[2].querySelectorAll('.category-tag')).map(tag => tag.textContent).join('; '),
+                    cells[3].textContent.trim()
+                ];
+            });
+            
+            const csvContent = [headers, ...rows].map(row => 
+                row.map(cell => `"${cell}"`).join(',')
+            ).join('\\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `users_export_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function refreshData() {
+            window.location.reload();
+        }
+
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.className = `status ${type}`;
+            statusDiv.textContent = message;
+            statusDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        // Modal functions
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            userToDelete = null;
+        }
+
+        // Email sending function
+        async function sendUserEmail(userId, btn) {
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Sending...';
+            
+            try {
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-User-ID': userId
+                    },
+                    body: JSON.stringify({user_id: userId})
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    btn.innerHTML = '✅ Sent!';
+                    showStatus('Email sent successfully!', 'success');
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    }, 2000);
+                } else {
+                    const errorMsg = result.message || 'Unknown error occurred';
+                    showStatus('Failed to send email: ' + errorMsg, 'error');
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                showStatus('Network error occurred', 'error');
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        // Edit user function
+        function editUser(userId) {
+            window.location.href = `/edit-user/${userId}`;
+        }
+
+        // Delete user functions
+        let userToDelete = null; // Initialize the global variable
+        
+        function deleteUser(userId) {
+            userToDelete = userId;
+            document.getElementById('deleteUserName').textContent = userId;
+            document.getElementById('deleteModal').style.display = 'block';
+        }
+
+        async function confirmDelete() {
+            if (!userToDelete) return;
+            
+            const btn = document.getElementById('confirmDeleteBtn');
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Deleting...';
+            
+            try {
+                const response = await fetch(`/api/delete-user/${userToDelete}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-User-ID': userToDelete
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    const row = document.querySelector(`tr[data-user-id="${userToDelete}"]`);
+                    if (row) row.remove();
+                    
+                    closeModal('deleteModal');
+                    showStatus(`User "${userToDelete}" deleted successfully`, 'success');
+                } else {
+                    const errorMsg = result.message || 'Unknown error occurred';
+                    showStatus('Failed to delete user: ' + errorMsg, 'error');
+                }
+            } catch (error) {
+                showStatus('Network error occurred', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Delete User';
+            }
+        }
+
+        // Event delegation for action buttons
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            const action = target.getAttribute('data-action');
+            const userId = target.getAttribute('data-user-id');
+            const modalId = target.getAttribute('data-modal-id');
+            
+            if (action === 'send-email' && userId) {
+                sendUserEmail(userId, target);
+            } else if (action === 'edit-user' && userId) {
+                editUser(userId);
+            } else if (action === 'delete-user' && userId) {
+                deleteUser(userId);
+            } else if (action === 'confirm-delete') {
+                confirmDelete();
+            } else if (action === 'close-modal' && modalId) {
+                closeModal(modalId);
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('deleteModal');
+            if (event.target === modal) {
+                closeModal('deleteModal');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('active-users').textContent = Math.floor(Math.random() * 5);
+        });
+    </script>
+</body>
+</html>

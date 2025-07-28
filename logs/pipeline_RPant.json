@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2025-07-28T18:27:29.669626",
+    "message": "\ud83d\ude80 Starting pipeline for user RPant",
+    "status": "running",
+    "step": "Initializing pipeline",
+    "formatted": "[18:27:29] \ud83d\ude80 Starting pipeline for user RPant"
+  },
+  {
+    "timestamp": "2025-07-28T18:27:29.670001",
+    "message": "Pipeline options: {'max_articles': 20, 'no_collect': False, 'skip_ai': False, 'dry_run': False}",
+    "status": "info",
+    "step": "Configuration",
+    "formatted": "[18:27:29] Pipeline options: {'max_articles': 20, 'no_collect': False, 'skip_ai': False, 'dry_run': False}"
+  },
+  {
+    "timestamp": "2025-07-28T18:27:29.670886",
+    "message": "\u2705 RSS collection job submitted: rss_collection_1753707449670",
+    "status": "info",
+    "step": "Job Submission",
+    "formatted": "[18:27:29] \u2705 RSS collection job submitted: rss_collection_1753707449670"
+  },
+  {
+    "timestamp": "2025-07-28T18:27:29.673165",
+    "message": "\u2705 AI processing job submitted: ai_processing_1753707449671",
+    "status": "info",
+    "step": "Job Submission",
+    "formatted": "[18:27:29] \u2705 AI processing job submitted: ai_processing_1753707449671"
+  },
+  {
+    "timestamp": "2025-07-28T18:27:29.673968",
+    "message": "\u2705 Email delivery job submitted: email_delivery_1753707449673",
+    "status": "info",
+    "step": "Job Submission",
+    "formatted": "[18:27:29] \u2705 Email delivery job submitted: email_delivery_1753707449673"
+  },
+  {
+    "timestamp": "2025-07-28T18:27:29.675549",
+    "message": "\ud83c\udfaf All jobs submitted successfully: 3 jobs",
+    "status": "info",
+    "step": "Pipeline Started",
+    "formatted": "[18:27:29] \ud83c\udfaf All jobs submitted successfully: 3 jobs"
+  }
+]

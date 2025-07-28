@@ -1,0 +1,10 @@
+
+{% extends "base.html" %}
+{% block title %}User Profile{% endblock %}
+{% block content %}
+    <h1>User Profile: {{ user.user_id }}</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Categories: {{ user.selected_categories|join(', ') }}</p>
+    <a href="{{ url_for('edit_user', user_id=user.user_id) }}" class="btn btn-secondary">Edit</a>
+    <a href="{{ url_for('generate_digest_route', user_id=user.user_id) }}" class="btn btn-primary">Generate Digest</a>
+{% endblock %}

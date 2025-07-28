@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations Dashboard - News Digest</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .header p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .section h2 {
+            margin: 0 0 20px 0;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .form-control, .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+            box-sizing: border-box;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            margin-top: 10px;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .status {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        .logs-panel {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        
+        .logs-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+            background: #e9ecef;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logs-header:hover {
+            background: #dee2e6;
+        }
+        
+        .logs-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .logs-content.show {
+            display: block;
+        }
+        
+        .current-step {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .logs-container {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 4px;
+            height: 250px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .log-line {
+            margin-bottom: 4px;
+            padding: 2px 0;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007bff;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 6px;
+        }
+        
+        .nav-links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .nav-links a:hover {
+            background: #0056b3;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .nav-links a {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>⚙️ Operations Dashboard</h1>
+            <p>Unified pipeline controls and system monitoring</p>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">🏠 Home</a>
+            <a href="{{ url_for('user_management') }}">👥 Users</a>
+            <a href="{{ url_for('create_user') }}">➕ Add User</a>
+            <a href="{{ url_for('articles_dashboard') }}">📰 Articles</a>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-box">
+                <span class="stat-number" id="userCount">-</span>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number" id="articleCount">-</span>
+                <div class="stat-label">Articles</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number" id="deliveryCount">-</span>
+                <div class="stat-label">Recent Deliveries</div>
+            </div>
+        </div>
+        
+        <!-- Unified Pipeline Section -->
+        <div class="section">
+            <h2>🚀 Unified Pipeline</h2>
+            
+            <form id="pipelineForm">
+                <div class="form-group">
+                    <label for="userSelect">Select User</label>
+                    <select id="userSelect" class="form-select" required>
+                        <option value="">Choose a user...</option>
+                        {% for user in users %}
+                        <option value="{{ user.user_id }}">{{ user.user_id }} ({{ user.email }})</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pipelineMode">Pipeline Mode</label>
+                    <select id="pipelineMode" class="form-select" required>
+                        <option value="full">Full Pipeline (Fetch → Process → Send)</option>
+                        <option value="fetch">Fetch Only (RSS Collection)</option>
+                        <option value="send">Send Only (Use Existing Articles)</option>
+                        <option value="dry_run">Dry Run (Preview Only)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="maxArticles">Max Articles</label>
+                    <input type="number" id="maxArticles" class="form-control" value="10" min="1" max="25">
+                </div>
+                
+                <button type="submit" class="btn" id="runBtn">
+                    🚀 Run Pipeline
+                </button>
+            </form>
+            
+            <div id="pipelineStatus" class="status"></div>
+        </div>
+        
+        <!-- Logs Panel -->
+        <div class="logs-panel">
+            <div class="logs-header" onclick="toggleLogs()">
+                <span><strong>📊 Pipeline Logs</strong></span>
+                <span id="logsToggle">▼</span>
+            </div>
+            <div class="logs-content" id="logsContent">
+                <div class="current-step" id="currentStep">Ready to start...</div>
+                <div class="logs-container" id="logsContainer">
+                    <div class="log-line">Waiting for pipeline execution...</div>
+                </div>
+                <button onclick="clearLogs()" class="btn-secondary">Clear Logs</button>
+                <button onclick="testAPI()" class="btn-secondary">Test API</button>
+            </div>
+        </div>
+        
+        <!-- System Controls -->
+        <div class="section">
+            <h2>🔧 System Controls</h2>
+            
+            <button onclick="refreshStats()" class="btn btn-success">
+                📊 Refresh Statistics
+            </button>
+            
+            <button onclick="runMaintenance()" class="btn-secondary">
+                🛠️ System Maintenance
+            </button>
+            
+            <div id="maintenanceStatus" class="status"></div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentMonitoringInterval = null;
+        
+        // Toggle logs panel
+        function toggleLogs() {
+            const content = document.getElementById('logsContent');
+            const toggle = document.getElementById('logsToggle');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                toggle.textContent = '▼';
+            } else {
+                content.classList.add('show');
+                toggle.textContent = '▲';
+            }
+        }
+        
+        // Pipeline form submission
+        document.getElementById('pipelineForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const userId = document.getElementById('userSelect').value;
+            const mode = document.getElementById('pipelineMode').value;
+            const maxArticles = parseInt(document.getElementById('maxArticles').value) || 10;
+            
+            if (!userId) {
+                alert('Please select a user');
+                return;
+            }
+            
+            const btn = document.getElementById('runBtn');
+            const status = document.getElementById('pipelineStatus');
+            
+            // Update UI
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Starting...';
+            status.className = 'status info';
+            status.style.display = 'block';
+            status.innerHTML = `Starting ${mode} pipeline for ${userId}...`;
+            
+            // Show logs panel
+            document.getElementById('logsContent').classList.add('show');
+            document.getElementById('logsToggle').textContent = '▲';
+            
+            try {
+                let endpoint, payload;
+                
+                switch (mode) {
+                    case 'full':
+                        endpoint = '/api/run-pipeline';
+                        payload = {
+                            user_id: userId,
+                            options: {
+                                max_articles: maxArticles,
+                                no_collect: false,
+                                skip_ai: false,
+                                dry_run: false
+                            }
+                        };
+                        break;
+                        
+                    case 'fetch':
+                        endpoint = '/api/run-pipeline';
+                        payload = {
+                            user_id: userId,
+                            options: {
+                                max_articles: maxArticles,
+                                no_collect: false,
+                                skip_ai: true,
+                                dry_run: false
+                            }
+                        };
+                        break;
+                        
+                    case 'send':
+                        endpoint = '/api/send-email';
+                        payload = {
+                            user_id: userId,
+                            max_articles: maxArticles
+                        };
+                        break;
+                        
+                    case 'dry_run':
+                        endpoint = '/api/run-pipeline';
+                        payload = {
+                            user_id: userId,
+                            options: {
+                                max_articles: maxArticles,
+                                no_collect: true,
+                                skip_ai: true,
+                                dry_run: true
+                            }
+                        };
+                        break;
+                }
+                
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-User-ID': userId
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    status.className = 'status success';
+                    status.innerHTML = `✅ ${result.message}`;
+                    
+                    if (mode !== 'send') {
+                        startLogMonitoring(userId);
+                    }
+                } else {
+                    status.className = 'status error';
+                    status.innerHTML = `❌ ${result.message}`;
+                }
+                
+            } catch (error) {
+                status.className = 'status error';
+                status.innerHTML = `❌ Error: ${error.message}`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '🚀 Run Pipeline';
+            }
+        });
+        
+        // Start log monitoring
+        function startLogMonitoring(userId) {
+            if (currentMonitoringInterval) {
+                clearInterval(currentMonitoringInterval);
+            }
+            
+            const currentStep = document.getElementById('currentStep');
+            const logsContainer = document.getElementById('logsContainer');
+            
+            let attempts = 0;
+            const maxAttempts = 60; // 5 minutes
+            
+            currentMonitoringInterval = setInterval(async () => {
+                attempts++;
+                
+                try {
+                    const response = await fetch(`/api/pipeline-logs/${userId}`, {
+                        headers: {
+                            'X-User-ID': userId
+                        }
+                    });
+                    const data = await response.json();
+                    
+                    // Update current step
+                    if (currentStep && data.current_step) {
+                        currentStep.textContent = data.current_step;
+                    }
+                    
+                    // Update logs
+                    if (logsContainer && data.logs) {
+                        logsContainer.innerHTML = '';
+                        data.logs.forEach(log => {
+                            const logLine = document.createElement('div');
+                            logLine.className = 'log-line';
+                            logLine.textContent = log;
+                            logsContainer.appendChild(logLine);
+                        });
+                        logsContainer.scrollTop = logsContainer.scrollHeight;
+                    }
+                    
+                    // Check completion
+                    if (data.status === 'completed' || data.status === 'failed' || attempts >= maxAttempts) {
+                        clearInterval(currentMonitoringInterval);
+                        currentMonitoringInterval = null;
+                        
+                        if (currentStep) {
+                            currentStep.textContent = data.status === 'completed' ? 
+                                '🎉 Pipeline completed!' : 
+                                '❌ Pipeline failed or timed out';
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.error('Log monitoring error:', error);
+                    if (attempts >= maxAttempts) {
+                        clearInterval(currentMonitoringInterval);
+                        currentMonitoringInterval = null;
+                    }
+                }
+            }, 5000);
+        }
+        
+        // Clear logs
+        function clearLogs() {
+            const logsContainer = document.getElementById('logsContainer');
+            const currentStep = document.getElementById('currentStep');
+            
+            if (logsContainer) {
+                logsContainer.innerHTML = '<div class="log-line">Logs cleared...</div>';
+            }
+            
+            if (currentStep) {
+                currentStep.textContent = 'Ready to start...';
+            }
+        }
+        
+        // Test API
+        function testAPI() {
+            const currentStep = document.getElementById('currentStep');
+            const logsContainer = document.getElementById('logsContainer');
+            
+            if (currentStep) {
+                currentStep.textContent = '🧪 Testing API...';
+            }
+            
+            fetch('/api/pipeline-logs/test', {
+                headers: {
+                    'X-User-ID': 'admin'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (logsContainer && data.logs) {
+                        logsContainer.innerHTML = '';
+                        data.logs.forEach(log => {
+                            const logLine = document.createElement('div');
+                            logLine.className = 'log-line';
+                            logLine.textContent = log;
+                            logsContainer.appendChild(logLine);
+                        });
+                        logsContainer.scrollTop = logsContainer.scrollHeight;
+                    }
+                    
+                    if (currentStep) {
+                        currentStep.textContent = '✅ API test completed';
+                    }
+                })
+                .catch(error => {
+                    console.error('API test failed:', error);
+                    if (currentStep) {
+                        currentStep.textContent = '❌ API test failed';
+                    }
+                });
+        }
+        
+        // Refresh statistics
+        async function refreshStats() {
+            try {
+                const response = await fetch('/api/stats', {
+                    headers: {
+                        'X-User-ID': 'admin'
+                    }
+                });
+                const stats = await response.json();
+                
+                document.getElementById('userCount').textContent = stats.total_users || 0;
+                document.getElementById('articleCount').textContent = stats.total_articles || 0;
+                document.getElementById('deliveryCount').textContent = stats.recent_deliveries || 0;
+                
+            } catch (error) {
+                console.error('Failed to refresh stats:', error);
+            }
+        }
+        
+        // Run maintenance
+        function runMaintenance() {
+            const status = document.getElementById('maintenanceStatus');
+            
+            if (!confirm('Run system maintenance? This may take a few minutes.')) {
+                return;
+            }
+            
+            status.className = 'status info';
+            status.style.display = 'block';
+            status.innerHTML = '🛠️ System maintenance feature coming soon!';
+        }
+        
+        // Load stats on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshStats();
+        });
+    </script>
+</body>
+</html>

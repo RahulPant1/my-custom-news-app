@@ -1,0 +1,2355 @@
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+ * Serving Flask app 'web_interface'
+ * Debug mode: on
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.202.160:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:20:56] "POST /api/send-email HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:23:55] "POST /api/send-email HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753534523840: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job email_delivery_1753534523840 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753534523840 for user RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:25:23] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753534523840: Started execution on worker JobWorker-2 (attempt 1)
+ERROR:background_jobs:Job email_delivery_1753534523840: Job failed: signal only works in main thread of the main interpreter
+INFO:background_jobs:Job email_delivery_1753534523840: Retrying job (attempt 2/3)
+INFO:background_jobs:Job email_delivery_1753534523840: Started execution on worker JobWorker-2 (attempt 2)
+ERROR:background_jobs:Job email_delivery_1753534523840: Job failed: signal only works in main thread of the main interpreter
+INFO:background_jobs:Job email_delivery_1753534523840: Retrying job (attempt 3/3)
+INFO:background_jobs:Job email_delivery_1753534523840: Started execution on worker JobWorker-2 (attempt 3)
+ERROR:background_jobs:Job email_delivery_1753534523840: Job failed: signal only works in main thread of the main interpreter
+ERROR:background_jobs:Job email_delivery_1753534523840: Job failed after 3 attempts
+INFO:background_jobs:Job email_delivery_1753534523840: Execution completed in 0.00 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:26:08] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/background_jobs.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:background_jobs:Job email_delivery_1753535043653: Job submitted with priority NORMAL
+INFO:background_jobs:Job email_delivery_1753535043653: Started execution on worker JobWorker-2 (attempt 1)
+INFO:background_jobs:Submitted job email_delivery_1753535043653 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753535043653 for user RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:34:03] "POST /api/run-pipeline HTTP/1.1" 200 -
+ERROR:background_jobs:Job email_delivery_1753535043653: Job failed: No module named 'src'
+INFO:background_jobs:Job email_delivery_1753535043653: Retrying job (attempt 2/3)
+INFO:background_jobs:Job email_delivery_1753535043653: Started execution on worker JobWorker-2 (attempt 2)
+ERROR:background_jobs:Job email_delivery_1753535043653: Job failed: No module named 'src'
+INFO:background_jobs:Job email_delivery_1753535043653: Retrying job (attempt 3/3)
+INFO:background_jobs:Job email_delivery_1753535043653: Started execution on worker JobWorker-2 (attempt 3)
+ERROR:background_jobs:Job email_delivery_1753535043653: Job failed: No module named 'src'
+ERROR:background_jobs:Job email_delivery_1753535043653: Job failed after 3 attempts
+INFO:background_jobs:Job email_delivery_1753535043653: Execution completed in 0.00 seconds
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/background_jobs.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:background_jobs:Job email_delivery_1753535125835: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job email_delivery_1753535125835 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753535125835 for user RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:35:25] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753535125835: Started execution on worker JobWorker-3 (attempt 1)
+ERROR:background_jobs:Job email_delivery_1753535125835: Job failed: No module named 'src'
+INFO:background_jobs:Job email_delivery_1753535125835: Retrying job (attempt 2/3)
+INFO:background_jobs:Job email_delivery_1753535125835: Started execution on worker JobWorker-3 (attempt 2)
+ERROR:background_jobs:Job email_delivery_1753535125835: Job failed: No module named 'src'
+INFO:background_jobs:Job email_delivery_1753535125835: Retrying job (attempt 3/3)
+INFO:background_jobs:Job email_delivery_1753535125835: Started execution on worker JobWorker-3 (attempt 3)
+ERROR:background_jobs:Job email_delivery_1753535125835: Job failed: No module named 'src'
+ERROR:background_jobs:Job email_delivery_1753535125835: Job failed after 3 attempts
+INFO:background_jobs:Job email_delivery_1753535125835: Execution completed in 0.00 seconds
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/background_jobs.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:background_jobs:Job email_delivery_1753535302874: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job email_delivery_1753535302874 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753535302874 for user RPant
+INFO:background_jobs:Job email_delivery_1753535302874: Started execution on worker JobWorker-2 (attempt 1)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:38:22] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753535302874: Debug: Current dir: /home/rahul/gemini-cli-basic/my_custom_news_app/src
+INFO:background_jobs:Job email_delivery_1753535302874: Debug: Project root: /home/rahul/gemini-cli-basic/my_custom_news_app
+INFO:background_jobs:Job email_delivery_1753535302874: Debug: Python path: ['/home/rahul/gemini-cli-basic/my_custom_news_app', '/home/rahul/gemini-cli-basic/my_custom_news_app/src', '/home/rahul/miniconda3/lib/python311.zip']
+INFO:background_jobs:Job email_delivery_1753535302874: Progress: 10% - Preparing email delivery for user RPant
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:email_delivery_refactored:Email delivery system initialized successfully
+INFO:background_jobs:Job email_delivery_1753535302874: Progress: 25% - Email system initialized and configured
+INFO:background_jobs:Job email_delivery_1753535302874: Progress: 40% - Generating digest from existing articles
+INFO:background_jobs:Job email_delivery_1753535302874: Prepared 10 articles across 3 categories
+INFO:background_jobs:Job email_delivery_1753535302874: Progress: 70% - Sending email digest
+INFO:src.services.email_service:Making AI call 1/6: Subject Generation
+INFO:src.templates.email_templates:Randomly selected template: news_digest
+INFO:src.services.email_service:Email delivered successfully to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753535302874: Progress: 100% - Email sent successfully
+INFO:background_jobs:Job email_delivery_1753535302874: Email delivered: Email sent to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753535302874: Job completed successfully
+INFO:background_jobs:Job email_delivery_1753535302874: Execution completed in 10.45 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:38:56] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:__main__:Skipping email delivery (dry_run mode) for user RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:40:53] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753535455152: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job email_delivery_1753535455152 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753535455152 for user RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:40:55] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753535455152: Started execution on worker JobWorker-2 (attempt 1)
+INFO:background_jobs:Job email_delivery_1753535455152: Debug: Current dir: /home/rahul/gemini-cli-basic/my_custom_news_app/src
+INFO:background_jobs:Job email_delivery_1753535455152: Debug: Project root: /home/rahul/gemini-cli-basic/my_custom_news_app
+INFO:background_jobs:Job email_delivery_1753535455152: Debug: Python path: ['/home/rahul/gemini-cli-basic/my_custom_news_app', '/home/rahul/gemini-cli-basic/my_custom_news_app/src', '/home/rahul/miniconda3/lib/python311.zip']
+INFO:background_jobs:Job email_delivery_1753535455152: Progress: 10% - Preparing email delivery for user RPant
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+ERROR:__main__:Error running pipeline: 400 Bad Request: Failed to decode JSON object: Expecting value: line 1 column 1 (char 0)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:40:57] "[35m[1mPOST /api/run-pipeline HTTP/1.1[0m" 500 -
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:email_delivery_refactored:Email delivery system initialized successfully
+INFO:background_jobs:Job email_delivery_1753535455152: Progress: 25% - Email system initialized and configured
+INFO:background_jobs:Job email_delivery_1753535455152: Progress: 40% - Generating digest from existing articles
+INFO:background_jobs:Job email_delivery_1753535455152: Prepared 10 articles across 3 categories
+INFO:background_jobs:Job email_delivery_1753535455152: Progress: 70% - Sending email digest
+INFO:src.services.email_service:Making AI call 1/6: Subject Generation
+INFO:src.templates.email_templates:Randomly selected template: modern_news
+INFO:src.services.email_service:Email delivered successfully to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753535455152: Progress: 100% - Email sent successfully
+INFO:background_jobs:Job email_delivery_1753535455152: Email delivered: Email sent to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753535455152: Job completed successfully
+INFO:background_jobs:Job email_delivery_1753535455152: Execution completed in 10.72 seconds
+INFO:background_jobs:Job ai_processing_1753535497058: Job submitted with priority HIGH
+INFO:background_jobs:Submitted job ai_processing_1753535497058 of type ai_processing
+INFO:__main__:Submitted AI processing job ai_processing_1753535497058
+INFO:background_jobs:Job email_delivery_1753535497058: Job submitted with priority NORMAL
+INFO:background_jobs:Job ai_processing_1753535497058: Started execution on worker JobWorker-3 (attempt 1)
+INFO:background_jobs:Job email_delivery_1753535497058: Started execution on worker JobWorker-1 (attempt 1)
+INFO:background_jobs:Submitted job email_delivery_1753535497058 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753535497058 for user RPant
+INFO:background_jobs:Job ai_processing_1753535497058: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753535497058: Progress: 10% - Initializing AI processor
+INFO:background_jobs:Job email_delivery_1753535497058: Debug: Current dir: /home/rahul/gemini-cli-basic/my_custom_news_app/src
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:41:37] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753535497058: Debug: Project root: /home/rahul/gemini-cli-basic/my_custom_news_app
+INFO:background_jobs:Job email_delivery_1753535497058: Debug: Python path: ['/home/rahul/gemini-cli-basic/my_custom_news_app', '/home/rahul/gemini-cli-basic/my_custom_news_app/src', '/home/rahul/miniconda3/lib/python311.zip']
+INFO:background_jobs:Job email_delivery_1753535497058: Progress: 10% - Preparing email delivery for user RPant
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753535497058: Progress: 25% - Starting AI processing cycle
+ERROR:background_jobs:Job ai_processing_1753535497058: Job failed: 'EnhancedAIProcessor' object has no attribute 'run_ai_processing_cycle'
+INFO:background_jobs:Job ai_processing_1753535497058: Retrying job (attempt 2/3)
+INFO:background_jobs:Job ai_processing_1753535497058: Started execution on worker JobWorker-3 (attempt 2)
+INFO:background_jobs:Job ai_processing_1753535497058: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753535497058: Progress: 10% - Initializing AI processor
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:email_delivery_refactored:Email delivery system initialized successfully
+INFO:background_jobs:Job email_delivery_1753535497058: Progress: 25% - Email system initialized and configured
+INFO:background_jobs:Job email_delivery_1753535497058: Progress: 40% - Generating digest from existing articles
+INFO:background_jobs:Job email_delivery_1753535497058: Prepared 10 articles across 3 categories
+INFO:background_jobs:Job email_delivery_1753535497058: Progress: 70% - Sending email digest
+INFO:src.services.email_service:Making AI call 1/6: Subject Generation
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753535497058: Progress: 25% - Starting AI processing cycle
+ERROR:background_jobs:Job ai_processing_1753535497058: Job failed: 'EnhancedAIProcessor' object has no attribute 'run_ai_processing_cycle'
+INFO:background_jobs:Job ai_processing_1753535497058: Retrying job (attempt 3/3)
+INFO:background_jobs:Job ai_processing_1753535497058: Started execution on worker JobWorker-3 (attempt 3)
+INFO:background_jobs:Job ai_processing_1753535497058: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753535497058: Progress: 10% - Initializing AI processor
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753535497058: Progress: 25% - Starting AI processing cycle
+ERROR:background_jobs:Job ai_processing_1753535497058: Job failed: 'EnhancedAIProcessor' object has no attribute 'run_ai_processing_cycle'
+ERROR:background_jobs:Job ai_processing_1753535497058: Job failed after 3 attempts
+INFO:background_jobs:Job ai_processing_1753535497058: Execution completed in 2.15 seconds
+INFO:src.templates.email_templates:Randomly selected template: modern_news
+INFO:src.services.email_service:Email delivered successfully to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753535497058: Progress: 100% - Email sent successfully
+INFO:background_jobs:Job email_delivery_1753535497058: Email delivered: Email sent to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753535497058: Job completed successfully
+INFO:background_jobs:Job email_delivery_1753535497058: Execution completed in 11.74 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:33] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:33] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_all_articles'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:33] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:40] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:40] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:42] "GET /edit-user/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:43] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:__main__:Updating user: RPant with data: {'user_id': 'RPant', 'email': 'rpant1007@gmail.com', 'selected_categories': ['Science & Discovery', 'Technology & Gadgets', 'Health & Wellness'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'text'}
+INFO:__main__:Database update result: True
+INFO:__main__:User verification after update: {'user_id': 'RPant', 'email': 'rpant1007@gmail.com', 'selected_categories': ['Science & Discovery', 'Technology & Gadgets', 'Health & Wellness'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'text', 'feedback_history': {}}
+INFO:__main__:User RPant updated successfully
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:56] "[32mPOST /edit-user/RPant HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:56] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:53:57] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:00] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:00] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_all_articles'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:00] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:background_jobs:Job rss_collection_1753536254260: Job submitted with priority HIGH
+INFO:background_jobs:Submitted job rss_collection_1753536254260 of type rss_collection
+INFO:__main__:Submitted RSS collection job rss_collection_1753536254260 for user RPant
+INFO:background_jobs:Job rss_collection_1753536254260: Started execution on worker JobWorker-3 (attempt 1)
+INFO:background_jobs:Job ai_processing_1753536254261: Job submitted with priority HIGH
+INFO:background_jobs:Submitted job ai_processing_1753536254261 of type ai_processing
+INFO:__main__:Submitted AI processing job ai_processing_1753536254261
+INFO:background_jobs:Job ai_processing_1753536254261: Started execution on worker JobWorker-1 (attempt 1)
+INFO:background_jobs:Job email_delivery_1753536254263: Job submitted with priority NORMAL
+INFO:background_jobs:Job ai_processing_1753536254261: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753536254261: Progress: 10% - Initializing AI processor
+INFO:background_jobs:Job email_delivery_1753536254263: Started execution on worker JobWorker-2 (attempt 1)
+INFO:background_jobs:Submitted job email_delivery_1753536254263 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753536254263 for user RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:14] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753536254263: Debug: Current dir: /home/rahul/gemini-cli-basic/my_custom_news_app/src
+INFO:background_jobs:Job email_delivery_1753536254263: Debug: Project root: /home/rahul/gemini-cli-basic/my_custom_news_app
+INFO:background_jobs:Job email_delivery_1753536254263: Debug: Python path: ['/home/rahul/gemini-cli-basic/my_custom_news_app', '/home/rahul/gemini-cli-basic/my_custom_news_app/src', '/home/rahul/miniconda3/lib/python311.zip']
+INFO:background_jobs:Job email_delivery_1753536254263: Progress: 10% - Preparing email delivery for user RPant
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 10% - Initializing RSS collector
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 25% - Starting collection from RSS feeds
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753536254260: Collecting for user RPant categories: ['Science & Discovery', 'Technology & Gadgets', 'Health & Wellness']
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 50% - Fetching articles from feeds
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 50% - Processing Science & Discovery
+ERROR:background_jobs:Job rss_collection_1753536254260: Job failed: 'IncrementalCollector' object has no attribute 'collect_from_category'
+INFO:background_jobs:Job rss_collection_1753536254260: Retrying job (attempt 2/3)
+INFO:background_jobs:Job rss_collection_1753536254260: Started execution on worker JobWorker-3 (attempt 2)
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 10% - Initializing RSS collector
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 25% - Starting collection from RSS feeds
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753536254260: Collecting for user RPant categories: ['Science & Discovery', 'Technology & Gadgets', 'Health & Wellness']
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 50% - Fetching articles from feeds
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 50% - Processing Science & Discovery
+ERROR:background_jobs:Job rss_collection_1753536254260: Job failed: 'IncrementalCollector' object has no attribute 'collect_from_category'
+INFO:background_jobs:Job rss_collection_1753536254260: Retrying job (attempt 3/3)
+INFO:background_jobs:Job rss_collection_1753536254260: Started execution on worker JobWorker-3 (attempt 3)
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 10% - Initializing RSS collector
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 25% - Starting collection from RSS feeds
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753536254260: Collecting for user RPant categories: ['Science & Discovery', 'Technology & Gadgets', 'Health & Wellness']
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 50% - Fetching articles from feeds
+INFO:background_jobs:Job rss_collection_1753536254260: Progress: 50% - Processing Science & Discovery
+ERROR:background_jobs:Job rss_collection_1753536254260: Job failed: 'IncrementalCollector' object has no attribute 'collect_from_category'
+ERROR:background_jobs:Job rss_collection_1753536254260: Job failed after 3 attempts
+INFO:background_jobs:Job rss_collection_1753536254260: Execution completed in 0.00 seconds
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753536254261: Progress: 25% - Starting AI processing cycle
+ERROR:background_jobs:Job ai_processing_1753536254261: Job failed: 'EnhancedAIProcessor' object has no attribute 'run_ai_processing_cycle'
+INFO:background_jobs:Job ai_processing_1753536254261: Retrying job (attempt 2/3)
+INFO:background_jobs:Job ai_processing_1753536254261: Started execution on worker JobWorker-1 (attempt 2)
+INFO:background_jobs:Job ai_processing_1753536254261: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753536254261: Progress: 10% - Initializing AI processor
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753536254261: Progress: 25% - Starting AI processing cycle
+ERROR:background_jobs:Job ai_processing_1753536254261: Job failed: 'EnhancedAIProcessor' object has no attribute 'run_ai_processing_cycle'
+INFO:background_jobs:Job ai_processing_1753536254261: Retrying job (attempt 3/3)
+INFO:background_jobs:Job ai_processing_1753536254261: Started execution on worker JobWorker-1 (attempt 3)
+INFO:background_jobs:Job ai_processing_1753536254261: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753536254261: Progress: 10% - Initializing AI processor
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:email_delivery_refactored:Email delivery system initialized successfully
+INFO:background_jobs:Job email_delivery_1753536254263: Progress: 25% - Email system initialized and configured
+INFO:background_jobs:Job email_delivery_1753536254263: Progress: 40% - Generating digest from existing articles
+INFO:background_jobs:Job email_delivery_1753536254263: Prepared 10 articles across 3 categories
+INFO:background_jobs:Job email_delivery_1753536254263: Progress: 70% - Sending email digest
+INFO:src.services.email_service:Making AI call 1/6: Subject Generation
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:18] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753536254261: Progress: 25% - Starting AI processing cycle
+ERROR:background_jobs:Job ai_processing_1753536254261: Job failed: 'EnhancedAIProcessor' object has no attribute 'run_ai_processing_cycle'
+ERROR:background_jobs:Job ai_processing_1753536254261: Job failed after 3 attempts
+INFO:background_jobs:Job ai_processing_1753536254261: Execution completed in 2.30 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:src.templates.email_templates:Randomly selected template: modern_news
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:24] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:src.services.email_service:Email delivered successfully to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753536254263: Progress: 100% - Email sent successfully
+INFO:background_jobs:Job email_delivery_1753536254263: Email delivered: Email sent to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753536254263: Job completed successfully
+INFO:background_jobs:Job email_delivery_1753536254263: Execution completed in 10.57 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:26] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:29] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:32] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:35] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:38] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:41] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:44] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:47] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:50] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:53] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:56] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:monitoring:ALERT: high_error_rate - Error rate is above 10% in the last 5 minutes
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:54:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:02] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:08] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:14] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:17] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:23] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:26] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:29] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:32] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:35] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:38] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:41] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:44] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:47] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:50] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:53] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:56] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:55:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:02] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:08] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:14] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:17] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:23] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:26] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:29] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:32] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:35] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:38] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:41] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:44] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:47] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:50] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:53] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:56] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:56:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:57:02] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:57:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:57:08] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:57:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 18:57:14] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:monitoring:ALERT RESOLVED: high_error_rate
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/background_jobs.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:00] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_all_articles'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:00] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:03] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:03] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_all_articles'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:03] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:12] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:13] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:16] "GET /edit-user/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:16] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:31] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:32] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:33] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:34] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:35] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_all_articles'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:36] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:37] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:37] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:39] "GET /edit-user/RP HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:39] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:43] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:44] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:47] "GET /edit-user/RP HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:47] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:51] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:51] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:54] "GET /edit-user/RP HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 19:47:54] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+ERROR:monitoring:ALERT: high_error_rate - Error rate is above 10% in the last 5 minutes
+INFO:monitoring:ALERT RESOLVED: high_error_rate
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/database.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/web_interface.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:25] "GET /edit-user/RP HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:25] "GET /static/script.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:27] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:28] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:28] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:28] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:29] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:29] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:30] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:30] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:31] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:31] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:31] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:33] "GET /create-user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:33] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:34] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:34] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:34] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:35] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:35] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:35] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:36] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:36] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:41] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:41] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:41] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:48] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:48] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:48] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:background_jobs:Job rss_collection_1753540255148: Job submitted with priority NORMAL
+INFO:background_jobs:Job rss_collection_1753540255148: Started execution on worker JobWorker-1 (attempt 1)
+INFO:background_jobs:Submitted job rss_collection_1753540255148 of type rss_collection
+INFO:__main__:Submitted RSS collection job rss_collection_1753540255148 for user RPant
+INFO:background_jobs:Job ai_processing_1753540255150: Job submitted with priority NORMAL
+INFO:background_jobs:Job ai_processing_1753540255150: Started execution on worker JobWorker-3 (attempt 1)
+INFO:background_jobs:Submitted job ai_processing_1753540255150 of type ai_processing
+INFO:__main__:Submitted AI processing job ai_processing_1753540255150
+INFO:__main__:Skipping email delivery (dry_run mode) for user RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:55] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job ai_processing_1753540255150: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753540255150: Progress: 10% - Initializing AI processor
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753540255148: Progress: 10% - Initializing RSS collector
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753540255148: Progress: 25% - Starting collection from RSS feeds
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753540255148: Collecting for user RPant categories: ['Science & Discovery', 'Technology & Gadgets', 'Health & Wellness']
+INFO:background_jobs:Job rss_collection_1753540255148: Progress: 50% - Fetching articles from feeds
+INFO:background_jobs:Job rss_collection_1753540255148: Progress: 50% - Processing 3 categories
+INFO:incremental_collector:Starting incremental collection cycle
+INFO:incremental_collector:Incrementally collecting from category: Science & Discovery (4 validated feeds)
+INFO:incremental_collector:Processing feed incrementally: https://www.newscientist.com/feed/home (Science & Discovery)
+INFO:incremental_collector:Fetched 100 entries from https://www.newscientist.com/feed/home
+INFO:incremental_collector:Feed processed: https://www.newscientist.com/feed/home - {'new': 0, 'updated': 10, 'skipped': 0, 'errors': 0}
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753540255150: Progress: 25% - Starting AI processing cycle
+INFO:enhanced_ai_processor:Starting enhanced AI processing cycle
+INFO:enhanced_ai_processor:Using batch summarization with batch size: 5
+INFO:enhanced_ai_processor:Enhanced batch processing of 50 articles with batch summaries (batch_size=5)
+INFO:incremental_collector:Processing feed incrementally: https://www.popsci.com/category/science/feed (Science & Discovery)
+ERROR:monitoring:ALERT: high_error_rate - Error rate is above 10% in the last 5 minutes
+INFO:incremental_collector:Fetched 10 entries from https://www.popsci.com/category/science/feed
+INFO:incremental_collector:Feed processed: https://www.popsci.com/category/science/feed - {'new': 0, 'updated': 10, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:00:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.sciencedaily.com/rss (Science & Discovery)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:01] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 60 entries from https://www.sciencedaily.com/rss
+INFO:incremental_collector:Feed processed: https://www.sciencedaily.com/rss - {'new': 0, 'updated': 10, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.space.com/feeds/news (Science & Discovery)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:07] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 50 entries from https://www.space.com/feeds/news
+INFO:incremental_collector:Feed processed: https://www.space.com/feeds/news - {'new': 3, 'updated': 7, 'skipped': 0, 'errors': 0}
+INFO:incremental_collector:Category Science & Discovery complete: {'new': 3, 'updated': 37, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:13] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Incrementally collecting from category: Technology & Gadgets (5 validated feeds)
+INFO:incremental_collector:Processing feed incrementally: https://feeds.arstechnica.com/arstechnica/index (Technology & Gadgets)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:17] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Feed unchanged (304): https://feeds.arstechnica.com/arstechnica/index
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:18] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:incremental_collector:Processing feed incrementally: https://techcrunch.com/feed (Technology & Gadgets)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 20 entries from https://techcrunch.com/feed
+INFO:incremental_collector:Feed processed: https://techcrunch.com/feed - {'new': 5, 'updated': 5, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:22] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.cnet.com/rss/news (Technology & Gadgets)
+INFO:incremental_collector:Fetched 25 entries from https://www.cnet.com/rss/news
+INFO:incremental_collector:Feed processed: https://www.cnet.com/rss/news - {'new': 4, 'updated': 6, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:25] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.engadget.com/rss.xml (Technology & Gadgets)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:28] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 50 entries from https://www.engadget.com/rss.xml
+INFO:incremental_collector:Feed processed: https://www.engadget.com/rss.xml - {'new': 2, 'updated': 8, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:31] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.wired.com/feed/rss (Technology & Gadgets)
+INFO:incremental_collector:Fetched 50 entries from https://www.wired.com/feed/rss
+INFO:incremental_collector:Feed processed: https://www.wired.com/feed/rss - {'new': 2, 'updated': 8, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:34] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Category Technology & Gadgets complete: {'new': 13, 'updated': 27, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:36] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:36] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:38] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Incrementally collecting from category: Health & Wellness (1 validated feeds)
+INFO:incremental_collector:Processing feed incrementally: https://www.sciencedaily.com/rss/health_medicine.xml (Health & Wellness)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:40] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:41] "GET /digest/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Feed unchanged (304): https://www.sciencedaily.com/rss/health_medicine.xml
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:41] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:43] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Category Health & Wellness complete: {'new': 0, 'updated': 0, 'skipped': 0, 'errors': 0}
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 23
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Business & Finance']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 21
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:47] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Incremental collection complete: {'new': 16, 'updated': 64, 'skipped': 0, 'errors': 0, 'feeds_processed': 10}
+INFO:background_jobs:Job rss_collection_1753540255148: Collection stats: {'new': 16, 'updated': 64, 'skipped': 0, 'errors': 0, 'feeds_processed': 10}
+INFO:background_jobs:Job rss_collection_1753540255148: Progress: 80% - Collected 16 new articles, 64 updated
+INFO:background_jobs:Job rss_collection_1753540255148: Progress: 100% - Collection completed
+INFO:background_jobs:Job rss_collection_1753540255148: Job completed successfully
+INFO:background_jobs:Job rss_collection_1753540255148: Execution completed in 52.20 seconds
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 19
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Business & Finance']
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:48] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:49] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:49] "GET /static/script.js HTTP/1.1" 200 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:49] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:49] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 17
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Business & Finance']
+INFO:email_delivery:Making AI call 1/6: One-liner Generation
+ERROR:ai_adapters:All AI adapters failed for operation: generate_summary
+WARNING:email_delivery:AI call failed: All AI services unavailable
+INFO:email_delivery:Generated enhanced email template for RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:51] "GET /email-preview/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 15
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Health & Wellness']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:52] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 13
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Global Affairs']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:55] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 11
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:01:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:01] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:07] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:10] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:13] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:17] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:18] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:22] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:26] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:28] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:32] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:34] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:38] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:40] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 26
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Science & Discovery']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 24
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:44] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 22
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:46] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:__main__:Error getting stats: 'DatabaseManager' object has no attribute 'get_recent_email_deliveries'
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:49] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:49] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 16
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:53] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 14
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 12
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:55] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 10
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:02:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:03:01] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:03:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:03:07] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:03:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/database.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:03:19] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:03:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:03:49] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:04:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:04:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:05:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:05:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:06:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:06:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:07:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:07:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:08:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:08:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:09:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:09:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:10:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:10:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:11:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:11:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:12:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:12:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:13:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:13:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:14:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:14:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:15:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:15:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:16:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:16:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:17:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:17:21] "GET /api/stats HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:18:20] "GET /api/stats HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:19:21] "GET /api/stats HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:20:20] "GET /api/stats HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:21:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:21:41] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:21:41] "GET /static/script.js HTTP/1.1" 200 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:21:41] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:24:27] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:24:27] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:database:Error getting recent email deliveries: no such column: delivery_timestamp
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:24:28] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/background_jobs.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/database.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:08] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:08] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:08] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:11] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:11] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:14] "GET /edit-user/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:15] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:__main__:Updating user: RPant with data: {'user_id': 'RPant', 'email': 'rpant1007@gmail.com', 'selected_categories': ['Health & Wellness', 'Business & Finance', 'Global Affairs'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'text'}
+INFO:__main__:Database update result: True
+INFO:__main__:User verification after update: {'user_id': 'RPant', 'email': 'rpant1007@gmail.com', 'selected_categories': ['Health & Wellness', 'Business & Finance', 'Global Affairs'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'text', 'feedback_history': {}}
+INFO:__main__:User RPant updated successfully
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:31] "[32mPOST /edit-user/RPant HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:51:31] "GET /user-management HTTP/1.1" 200 -
+INFO:email_delivery:Making AI call 1/6: One-liner Generation
+ERROR:ai_adapters:All AI adapters failed for operation: generate_summary
+WARNING:email_delivery:AI call failed: All AI services unavailable
+INFO:email_delivery:Generated enhanced email template for RPant
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:52:38] "GET /email-preview/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:40] "GET /edit-user/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:40] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:47] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:47] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:47] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:47] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:47] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:48] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:48] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:52] "GET /edit-user/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:52] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:56] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:56] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:56] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:56:56] "GET /api/stats HTTP/1.1" 200 -
+INFO:background_jobs:Job ai_processing_1753543624507: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job ai_processing_1753543624507 of type ai_processing
+INFO:__main__:Submitted AI processing job ai_processing_1753543624507
+INFO:background_jobs:Job ai_processing_1753543624507: Started execution on worker JobWorker-3 (attempt 1)
+INFO:background_jobs:Job email_delivery_1753543624508: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job email_delivery_1753543624508 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753543624508 for user RPant
+INFO:background_jobs:Job email_delivery_1753543624508: Started execution on worker JobWorker-2 (attempt 1)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:04] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753543624508: Debug: Current dir: /home/rahul/gemini-cli-basic/my_custom_news_app/src
+INFO:background_jobs:Job email_delivery_1753543624508: Debug: Project root: /home/rahul/gemini-cli-basic/my_custom_news_app
+INFO:background_jobs:Job email_delivery_1753543624508: Debug: Python path: ['/home/rahul/gemini-cli-basic/my_custom_news_app', '/home/rahul/gemini-cli-basic/my_custom_news_app/src', '/home/rahul/miniconda3/lib/python311.zip']
+INFO:background_jobs:Job ai_processing_1753543624507: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753543624507: Progress: 10% - Initializing AI processor
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job email_delivery_1753543624508: Progress: 10% - Preparing email delivery for user RPant
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753543624507: Progress: 25% - Starting AI processing cycle
+INFO:enhanced_ai_processor:Starting enhanced AI processing cycle
+INFO:enhanced_ai_processor:Using batch summarization with batch size: 8
+INFO:enhanced_ai_processor:Enhanced batch processing of 50 articles with batch summaries (batch_size=8)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:07] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:10] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:email_delivery_refactored:Email delivery system initialized successfully
+INFO:background_jobs:Job email_delivery_1753543624508: Progress: 25% - Email system initialized and configured
+INFO:background_jobs:Job email_delivery_1753543624508: Progress: 40% - Generating digest from existing articles
+INFO:background_jobs:Job email_delivery_1753543624508: Prepared 10 articles across 3 categories
+INFO:background_jobs:Job email_delivery_1753543624508: Progress: 70% - Sending email digest
+INFO:src.services.email_service:Making AI call 1/6: Subject Generation
+INFO:src.templates.email_templates:Randomly selected template: newspaper
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:13] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:16] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:src.services.email_service:Email delivered successfully to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753543624508: Progress: 100% - Email sent successfully
+INFO:background_jobs:Job email_delivery_1753543624508: Email delivered: Email sent to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753543624508: Job completed successfully
+INFO:background_jobs:Job email_delivery_1753543624508: Execution completed in 12.42 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:19] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:22] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:25] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:28] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:32] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 33
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:34] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 31
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:38] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 29
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Health & Wellness']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 27
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Business & Finance']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:40] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 25
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Global Affairs']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:44] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 23
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 21
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Business & Finance']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:46] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 19
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:50] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 17
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:52] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:56] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 11
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:57:58] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 9
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 7
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:02] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 5
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['For Young Minds']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:04] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:08] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:10] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:14] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:16] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:22] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:58:26] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 20:59:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 3
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Science & Discovery']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 1
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Science & Discovery']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 59
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:00:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:enhanced_ai_processor:Processing 50 articles with batch summarization
+INFO:enhanced_ai_processor:Processing batch 1: articles 1-8
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 8 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 2: articles 9-16
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 8 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 3: articles 17-24
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 8 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 4: articles 25-32
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 8 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 5: articles 33-40
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 8 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 6: articles 41-48
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 8 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 7: articles 49-50
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:01:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 2 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Batch processing complete: 50 processed, 7 batch API calls
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: detect_trends
+INFO:enhanced_ai_processor:Enhanced processing cycle complete: {'processed': 50, 'updated': 50, 'trends': 0, 'trending_articles': 0, 'api_calls': 58, 'total_cost': 0.0}
+INFO:background_jobs:Job ai_processing_1753543624507: Progress: 100% - AI processing completed
+INFO:background_jobs:Job ai_processing_1753543624507: Job completed successfully
+INFO:background_jobs:Job ai_processing_1753543624507: Execution completed in 273.41 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:02:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:03:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:04:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:05:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:06:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:07:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:08:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:09:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:10:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:11:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:12:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:13:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:14:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:15:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:16:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:17:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:18:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:19:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:20:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:21:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:22:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:23:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:24:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:25:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:26:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:27:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:28:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:29:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:30:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:31:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/web_interface.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/web_interface.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:42] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:42] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:46] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:46] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:48] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:49] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:50] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:51] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:52] "GET /create-user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:53] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:55] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:55] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:56] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:49:56] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:01] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:01] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:01] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:03] "GET /create-user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:04] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:06] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:06] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:06] "GET /api/stats HTTP/1.1" 200 -
+INFO:background_jobs:Job rss_collection_1753546837800: Job submitted with priority HIGH
+INFO:background_jobs:Job rss_collection_1753546837800: Started execution on worker JobWorker-2 (attempt 1)
+INFO:background_jobs:Submitted job rss_collection_1753546837800 of type rss_collection
+INFO:__main__:Submitted RSS collection job rss_collection_1753546837800 for user RPant
+INFO:background_jobs:Job email_delivery_1753546837802: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job email_delivery_1753546837802 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753546837802 for user RPant
+INFO:background_jobs:Job email_delivery_1753546837802: Started execution on worker JobWorker-3 (attempt 1)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:37] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job email_delivery_1753546837802: Debug: Current dir: /home/rahul/gemini-cli-basic/my_custom_news_app/src
+INFO:background_jobs:Job email_delivery_1753546837802: Debug: Project root: /home/rahul/gemini-cli-basic/my_custom_news_app
+INFO:background_jobs:Job email_delivery_1753546837802: Debug: Python path: ['/home/rahul/gemini-cli-basic/my_custom_news_app', '/home/rahul/gemini-cli-basic/my_custom_news_app/src', '/home/rahul/miniconda3/lib/python311.zip']
+INFO:background_jobs:Job email_delivery_1753546837802: Progress: 10% - Preparing email delivery for user RPant
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753546837800: Progress: 10% - Initializing RSS collector
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753546837800: Progress: 25% - Starting collection from RSS feeds
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job rss_collection_1753546837800: Collecting for user RPant categories: ['Health & Wellness', 'Business & Finance', 'Global Affairs']
+INFO:background_jobs:Job rss_collection_1753546837800: Progress: 50% - Fetching articles from feeds
+INFO:background_jobs:Job rss_collection_1753546837800: Progress: 50% - Processing 3 categories
+INFO:incremental_collector:Starting incremental collection cycle
+INFO:incremental_collector:Incrementally collecting from category: Health & Wellness (1 validated feeds)
+INFO:incremental_collector:Processing feed incrementally: https://www.sciencedaily.com/rss/health_medicine.xml (Health & Wellness)
+INFO:incremental_collector:Fetched 60 entries from https://www.sciencedaily.com/rss/health_medicine.xml
+INFO:incremental_collector:Feed processed: https://www.sciencedaily.com/rss/health_medicine.xml - {'new': 3, 'updated': 12, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:41] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:incremental_collector:Category Health & Wellness complete: {'new': 3, 'updated': 12, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:43] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:email_delivery_refactored:Email delivery system initialized successfully
+INFO:background_jobs:Job email_delivery_1753546837802: Progress: 25% - Email system initialized and configured
+INFO:background_jobs:Job email_delivery_1753546837802: Progress: 40% - Generating digest from existing articles
+INFO:background_jobs:Job email_delivery_1753546837802: Prepared 12 articles across 3 categories
+INFO:background_jobs:Job email_delivery_1753546837802: Progress: 70% - Sending email digest
+INFO:src.services.email_service:Making AI call 1/6: Subject Generation
+INFO:incremental_collector:Incrementally collecting from category: Business & Finance (6 validated feeds)
+INFO:incremental_collector:Processing feed incrementally: https://feeds.bloomberg.com/markets/news.rss (Business & Finance)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:47] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 30 entries from https://feeds.bloomberg.com/markets/news.rss
+INFO:incremental_collector:Feed processed: https://feeds.bloomberg.com/markets/news.rss - {'new': 5, 'updated': 10, 'skipped': 0, 'errors': 0}
+INFO:src.templates.email_templates:Randomly selected template: newspaper
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:49] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://feeds.businessinsider.com/custom/all (Business & Finance)
+INFO:src.services.email_service:Email delivered successfully to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753546837802: Progress: 100% - Email sent successfully
+INFO:background_jobs:Job email_delivery_1753546837802: Email delivered: Email sent to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753546837802: Job completed successfully
+INFO:background_jobs:Job email_delivery_1753546837802: Execution completed in 15.08 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:53] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 20 entries from https://feeds.businessinsider.com/custom/all
+INFO:incremental_collector:Feed processed: https://feeds.businessinsider.com/custom/all - {'new': 8, 'updated': 7, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:55] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://feeds.feedburner.com/entrepreneur/latest (Business & Finance)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:50:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 15 entries from https://feeds.feedburner.com/entrepreneur/latest
+INFO:incremental_collector:Feed processed: https://feeds.feedburner.com/entrepreneur/latest - {'new': 5, 'updated': 10, 'skipped': 0, 'errors': 0}
+INFO:incremental_collector:Processing feed incrementally: https://feeds.marketwatch.com/marketwatch/realtimeheadlines/ (Business & Finance)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:01] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 10 entries from https://feeds.marketwatch.com/marketwatch/realtimeheadlines/
+INFO:incremental_collector:Feed processed: https://feeds.marketwatch.com/marketwatch/realtimeheadlines/ - {'new': 0, 'updated': 10, 'skipped': 0, 'errors': 0}
+INFO:incremental_collector:Processing feed incrementally: https://techcrunch.com/startups/feed (Business & Finance)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 20 entries from https://techcrunch.com/startups/feed
+INFO:incremental_collector:Feed processed: https://techcrunch.com/startups/feed - {'new': 0, 'updated': 15, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:07] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.economist.com/business/rss.xml (Business & Finance)
+INFO:incremental_collector:Fetched 300 entries from https://www.economist.com/business/rss.xml
+INFO:incremental_collector:Feed processed: https://www.economist.com/business/rss.xml - {'new': 0, 'updated': 15, 'skipped': 0, 'errors': 0}
+INFO:incremental_collector:Category Business & Finance complete: {'new': 18, 'updated': 67, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:13] "GET /user-management HTTP/1.1" 200 -
+INFO:incremental_collector:Incrementally collecting from category: Global Affairs (4 validated feeds)
+INFO:incremental_collector:Processing feed incrementally: https://www.aljazeera.com/xml/rss/all.xml (Global Affairs)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:14] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:14] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Fetched 25 entries from https://www.aljazeera.com/xml/rss/all.xml
+INFO:incremental_collector:Feed processed: https://www.aljazeera.com/xml/rss/all.xml - {'new': 11, 'updated': 4, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:17] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.bbc.co.uk/news/world/rss.xml (Global Affairs)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:17] "GET /edit-user/TestCLI HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:17] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:incremental_collector:Fetched 25 entries from https://www.bbc.co.uk/news/world/rss.xml
+INFO:incremental_collector:Feed processed: https://www.bbc.co.uk/news/world/rss.xml - {'new': 3, 'updated': 12, 'skipped': 0, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:19] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.bbc.com/news/world/rss.xml (Global Affairs)
+INFO:incremental_collector:Fetched 25 entries from https://www.bbc.com/news/world/rss.xml
+INFO:incremental_collector:Feed processed: https://www.bbc.com/news/world/rss.xml - {'new': 3, 'updated': 7, 'skipped': 15, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:23] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Processing feed incrementally: https://www.economist.com/international/rss.xml (Global Affairs)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:25] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:incremental_collector:Feed unchanged (304): https://www.economist.com/international/rss.xml
+INFO:incremental_collector:Category Global Affairs complete: {'new': 17, 'updated': 23, 'skipped': 15, 'errors': 0}
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:29] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:30] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:30] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:30] "GET /api/stats HTTP/1.1" 200 -
+INFO:incremental_collector:Incremental collection complete: {'new': 38, 'updated': 102, 'skipped': 15, 'errors': 0, 'feeds_processed': 11}
+INFO:background_jobs:Job rss_collection_1753546837800: Collection stats: {'new': 38, 'updated': 102, 'skipped': 15, 'errors': 0, 'feeds_processed': 11}
+INFO:background_jobs:Job rss_collection_1753546837800: Progress: 80% - Collected 38 new articles, 102 updated
+INFO:background_jobs:Job rss_collection_1753546837800: Progress: 100% - Collection completed
+INFO:background_jobs:Job rss_collection_1753546837800: Job completed successfully
+INFO:background_jobs:Job rss_collection_1753546837800: Execution completed in 53.39 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:31] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:31] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:32] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:34] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:36] "GET /edit-user/TestCLI HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:36] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:37] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:41] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:43] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:46] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:46] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:46] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:47] "GET /edit-user/TestCLI HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:47] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:49] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:53] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:__main__:Updating user: TestCLI with data: {'user_id': 'TestCLI', 'email': 'test-cli@example.com', 'selected_categories': ['Pop Culture & Lifestyle'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'email'}
+INFO:__main__:Database update result: True
+INFO:__main__:User verification after update: {'user_id': 'TestCLI', 'email': 'test-cli@example.com', 'selected_categories': ['Pop Culture & Lifestyle'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'email', 'feedback_history': {}}
+INFO:__main__:User TestCLI updated successfully
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:53] "[32mPOST /edit-user/TestCLI HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:53] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:54] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:55] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:56] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:51:58] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:01] "GET /edit-user/TestCLI HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:01] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:01] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:07] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:__main__:Updating user: TestCLI with data: {'user_id': 'TestCLI', 'email': 'test-cli@example.com', 'selected_categories': ['Good Vibes (Positive News)'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'email'}
+INFO:__main__:Database update result: True
+INFO:__main__:User verification after update: {'user_id': 'TestCLI', 'email': 'test-cli@example.com', 'selected_categories': ['Good Vibes (Positive News)'], 'digest_frequency': 'daily', 'articles_per_digest': 10, 'preferred_output_format': 'email', 'feedback_history': {}}
+INFO:__main__:User TestCLI updated successfully
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:13] "[32mPOST /edit-user/TestCLI HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:13] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:13] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:14] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:14] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:23] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:25] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:29] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:31] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:35] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:37] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:41] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:43] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:47] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:49] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:53] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:55] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:52:59] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:01] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:05] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:07] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:11] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:13] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:17] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:19] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:53:23] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:29] "[33mGET /preferences?user_id=RPant HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:30] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:34] "[33mGET /preferences?user_id=RPant HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:34] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:41] "[33mGET /unsubscribe?user_id=RPant HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:42] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:49] "[33mGET /track/feedback?user_id=RPant&article_id=1155&feedback=like&delivery_id=54 HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:54:50] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:55:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:56:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:57:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:57:26] "[33mGET /track/feedback?user_id=RPant&article_id=1127&feedback=more_like_this&delivery_id=54 HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:57:26] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:57:32] "[33mGET /track/feedback?user_id=RPant&article_id=1122&feedback=more_like_this&delivery_id=54 HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:57:32] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+ERROR:monitoring:ALERT: high_error_rate - Error rate is above 10% in the last 5 minutes
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:58:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 21:59:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:monitoring:ALERT RESOLVED: high_error_rate
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:19] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:19] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:19] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:21] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:21] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:27] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:27] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:30] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:30] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:30] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:33] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:33] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:38] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:38] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:42] "GET /user-management HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:20:47] "DELETE /api/delete-user/7c860898 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:11] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:11] "GET /api/stats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:15] "GET /operations HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:15] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:15] "GET /api/stats HTTP/1.1" 200 -
+INFO:background_jobs:Job ai_processing_1753548685933: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job ai_processing_1753548685933 of type ai_processing
+INFO:__main__:Submitted AI processing job ai_processing_1753548685933
+INFO:background_jobs:Job ai_processing_1753548685933: Started execution on worker JobWorker-2 (attempt 1)
+INFO:background_jobs:Job email_delivery_1753548685934: Job submitted with priority NORMAL
+INFO:background_jobs:Submitted job email_delivery_1753548685934 of type email_delivery
+INFO:__main__:Submitted email delivery job email_delivery_1753548685934 for user RPant
+INFO:background_jobs:Job email_delivery_1753548685934: Started execution on worker JobWorker-3 (attempt 1)
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:25] "POST /api/run-pipeline HTTP/1.1" 200 -
+INFO:background_jobs:Job ai_processing_1753548685933: Using enhanced AI processor
+INFO:background_jobs:Job ai_processing_1753548685933: Progress: 10% - Initializing AI processor
+INFO:background_jobs:Job email_delivery_1753548685934: Debug: Current dir: /home/rahul/gemini-cli-basic/my_custom_news_app/src
+INFO:background_jobs:Job email_delivery_1753548685934: Debug: Project root: /home/rahul/gemini-cli-basic/my_custom_news_app
+INFO:background_jobs:Job email_delivery_1753548685934: Debug: Python path: ['/home/rahul/gemini-cli-basic/my_custom_news_app', '/home/rahul/gemini-cli-basic/my_custom_news_app/src', '/home/rahul/miniconda3/lib/python311.zip']
+INFO:database:Database initialized successfully
+INFO:background_jobs:Job email_delivery_1753548685934: Progress: 10% - Preparing email delivery for user RPant
+INFO:database:Database initialized successfully
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:29] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:background_jobs:Job ai_processing_1753548685933: Progress: 25% - Starting AI processing cycle
+INFO:enhanced_ai_processor:Starting enhanced AI processing cycle
+INFO:enhanced_ai_processor:Using batch summarization with batch size: 5
+INFO:enhanced_ai_processor:Enhanced batch processing of 50 articles with batch summaries (batch_size=5)
+INFO:ai_adapters:Registered google adapter (available: True)
+INFO:ai_adapters:AI Manager initialized with 1 available adapters: ['google (primary)']
+INFO:database:Database initialized successfully
+INFO:email_delivery_refactored:Email delivery system initialized successfully
+INFO:background_jobs:Job email_delivery_1753548685934: Progress: 25% - Email system initialized and configured
+INFO:background_jobs:Job email_delivery_1753548685934: Progress: 40% - Generating digest from existing articles
+INFO:background_jobs:Job email_delivery_1753548685934: Prepared 12 articles across 3 categories
+INFO:background_jobs:Job email_delivery_1753548685934: Progress: 70% - Sending email digest
+INFO:src.services.email_service:Making AI call 1/6: Subject Generation
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:31] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:src.templates.email_templates:Randomly selected template: magazine
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:35] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:src.services.email_service:Email delivered successfully to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753548685934: Progress: 100% - Email sent successfully
+INFO:background_jobs:Job email_delivery_1753548685934: Email delivered: Email sent to rpant1007@gmail.com
+INFO:background_jobs:Job email_delivery_1753548685934: Job completed successfully
+INFO:background_jobs:Job email_delivery_1753548685934: Execution completed in 12.65 seconds
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:38] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:42] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:44] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:48] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:50] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:54] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:21:56] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:00] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:02] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 2
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:06] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:08] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:12] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 53
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Global Affairs']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:14] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 51
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Pop Culture & Lifestyle']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:18] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 49
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Health & Wellness']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 47
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 45
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:24] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 43
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:26] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:30] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:32] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:22:36] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 48
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Business & Finance']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:23:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 42
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Science & Discovery']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 54
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 52
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Good Vibes (Positive News)']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 50
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Technology & Gadgets', 'Pop Culture & Lifestyle']
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 48
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Science & Discovery']
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:24:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+ERROR:ai_adapters:Google AI classification error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 46
+}
+]
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: classify_article
+INFO:enhanced_ai_processor:Rule-based classification: ['Business & Finance']
+INFO:enhanced_ai_processor:Processing 50 articles with batch summarization
+INFO:enhanced_ai_processor:Processing batch 1: articles 1-5
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 2: articles 6-10
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 3: articles 11-15
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 4: articles 16-20
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 5: articles 21-25
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 6: articles 26-30
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 7: articles 31-35
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:25:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 8: articles 36-40
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 9: articles 41-45
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Processing batch 10: articles 46-50
+WARNING:ai_adapters:Failed to parse batch summaries as JSON, falling back to individual processing
+INFO:enhanced_ai_processor:Batch processed successfully: 5 summaries generated (via GoogleAI)
+INFO:enhanced_ai_processor:Batch processing complete: 50 processed, 10 batch API calls
+WARNING:ai_adapters:Primary adapter google failed, trying fallbacks
+ERROR:ai_adapters:All AI adapters failed for operation: detect_trends
+INFO:enhanced_ai_processor:Enhanced processing cycle complete: {'processed': 50, 'updated': 50, 'trends': 0, 'trending_articles': 0, 'api_calls': 61, 'total_cost': 0.0}
+INFO:background_jobs:Job ai_processing_1753548685933: Progress: 100% - AI processing completed
+INFO:background_jobs:Job ai_processing_1753548685933: Job completed successfully
+INFO:background_jobs:Job ai_processing_1753548685933: Execution completed in 268.92 seconds
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:26:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:27:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:28:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/templates/email_templates.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:29:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:30:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:31:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/web_interface.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/web_interface.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug: * Detected change in '/home/rahul/gemini-cli-basic/my_custom_news_app/src/web_interface.py', reloading
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True
+INFO:werkzeug: * Restarting with stat
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:database:Database initialized successfully
+INFO:background_jobs:Registered handler for job type: rss_collection
+INFO:background_jobs:Registered handler for job type: ai_processing
+INFO:background_jobs:Registered handler for job type: email_delivery
+INFO:background_jobs:Worker JobWorker-1 started
+INFO:background_jobs:Worker JobWorker-2 started
+INFO:background_jobs:Worker JobWorker-3 started
+INFO:background_jobs:Started background job manager with 3 workers
+INFO:monitoring:Started system metrics collection thread
+INFO:monitoring:Added alert rule: high_cpu_usage
+INFO:monitoring:Added alert rule: high_memory_usage
+INFO:monitoring:Added alert rule: high_error_rate
+INFO:monitoring:Added alert rule: slow_response_times
+INFO:monitoring:Monitoring and observability setup completed
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-066-942
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:32:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:33:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:34:21] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2025 22:35:20] "GET /api/pipeline-logs/RPant HTTP/1.1" 200 -
+Warning: Security middleware not available (No module named 'jwt'). Running in basic mode.
+Warning: Caching not available (No module named 'redis'). No caching enabled.
+🌐 Starting News Digest Web Interface
+   URL: http://localhost:5000
+   Debug: True

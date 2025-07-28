@@ -1,0 +1,11 @@
+
+{% extends "base.html" %}
+{% block title %}Categories{% endblock %}
+{% block content %}
+    <h1>All Categories</h1>
+    <ul>
+    {% for cat in ai_categories %}
+        <li>{{ cat }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h1>Dashboard</h1>
+    <div id="stats-container">
+        <p>Articles in DB: {{ stats.total_articles }}</p>
+        <p>Processed today: {{ stats.processed_today }}</p>
+    </div>
+    <h2>Categories</h2>
+    <div class="row">
+        {% for cat, info in categories.items() %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ info.icon }} {{ cat }}</h5>
+                    <p class="card-text">{{ info.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
