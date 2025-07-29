@@ -14,11 +14,11 @@ echo "Python path: $PYTHON_PATH"
 echo ""
 
 # Create cron entries
-DAILY_CRON="0 8 * * * cd $PROJECT_DIR && $PYTHON_PATH cron_scheduler.py daily >> cron_scheduler.log 2>&1"
+DAILY_CRON="0 21 * * * cd $PROJECT_DIR && $PYTHON_PATH cron_scheduler.py daily >> cron_scheduler.log 2>&1"
 WEEKLY_CRON="0 9 * * 1 cd $PROJECT_DIR && $PYTHON_PATH cron_scheduler.py weekly >> cron_scheduler.log 2>&1"
 
 echo "📅 Cron jobs to be installed:"
-echo "   Daily digest:  Every day at 8:00 AM"
+echo "   Daily digest:  Every day at 9:00 PM"
 echo "   Weekly digest: Every Monday at 9:00 AM"
 echo ""
 echo "Cron entries:"
