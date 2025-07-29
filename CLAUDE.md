@@ -4,17 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a CLI-based personalized news digest generator with two main modules:
+This is a mature CLI-based personalized news digest generator with both command-line and web interfaces. The system features two main operational modules:
 
 1. **Collector Module** - Automated processing that fetches articles from RSS feeds, uses AI to classify into 10 predefined categories, generates summaries, and stores enriched content
-2. **User Interface Module** - Retrieves from processed database and delivers personalized digests in text, Markdown, or email-ready formats
+2. **User Interface Module** - Retrieves from processed database and delivers personalized digests in text, Markdown, email-ready formats, or via web interface
 
 ## Architecture
 
-The application is designed around a two-module architecture for scalability:
+The application implements a sophisticated multi-module architecture:
 
-- **Collector Module**: Fetches → AI processes (classify, summarize, trend detect) → Deduplicates → Stores in central database
-- **User Interface Module**: User preferences → Fetch relevant articles → Generate personalized digest → Output in chosen format
+- **Collector Module**: RSS feeds → AI processing (classify, summarize, trend detect) → Deduplication → Database storage
+- **User Interface Module**: User preferences → Article retrieval → Personalized digest generation → Multi-format output
+- **Web Interface**: Flask-based admin panel with user management, pipeline monitoring, and digest preview
+- **Background Jobs**: Asynchronous task processing with job queuing and status tracking
+- **LLM Router**: Multi-provider AI system supporting OpenAI, Anthropic, Google, Groq, Ollama, and OpenRouter
+- **Caching Layer**: Redis-based caching for performance optimization
+- **Monitoring System**: Comprehensive logging, metrics collection, and health checking
 
 ## AI Categories System
 
@@ -32,34 +37,81 @@ Articles are classified (multi-label possible) into 10 predefined categories:
 
 ## Data Schema
 
-**Article Table**: id, title, author, publication_date, source_link, original_summary, rss_category, ai_categories (multi-label), ai_summary, trending_flag, date_collected
+**Articles Table**: id, title, author, publication_date, source_link, original_summary, rss_category, ai_categories (multi-label), ai_summary, trending_flag, date_collected
 
 **User Preferences Table**: user_id, email, selected_categories, digest_frequency, articles_per_digest, preferred_output_format, feedback_history
 
+**Additional Tables**: rss_feeds, feed_tracking, email_deliveries, feedback_history, engagement_metrics, email_preferences, daily_oneliners, stock_images
+
+## Technical Implementation
+
+### Core Components
+- **Database**: SQLite with connection pooling and optimization
+- **AI Processing**: Multi-provider LLM integration with usage tracking
+- **Email System**: Multiple template support with SMTP configuration
+- **Web Interface**: Flask application with comprehensive admin features
+- **Background Processing**: Job queue system with priority handling
+- **Security**: Middleware for input validation and rate limiting
+- **Caching**: Redis integration for performance optimization
+
+### Key Features Implemented
+- RSS feed validation and management
+- Incremental article collection
+- AI-powered categorization and summarization
+- Email template system with multiple layouts
+- Web-based administration panel
+- Pipeline monitoring and logging
+- User feedback collection
+- Background job processing
+- Image extraction and caching
+- Daily one-liner generation
+
 ## RSS Feed Integration
 
-Each category maps to 5 curated RSS feeds. All RSS endpoints must be validated for XML validity and accessibility before implementation.
+Each category maps to 5 curated RSS feeds managed through the web interface. RSS endpoints are validated for XML validity and accessibility with comprehensive error handling.
 
-## Key Implementation Notes
+## Web Interface Components
 
-- Batch AI processing only - all classification, summarization, and trend detection done in bulk
-- Centralized content pool serves all users  
-- Deduplication and diversity balancing to prevent single source dominance
-- Email-ready output generation even in CLI phase for future integration
-- User feedback loop for personalization (likes/dislikes tracking)
+### Templates (templates/)
+- **Base Layout**: base.html
+- **User Management**: user_management.html, create_user.html, edit_user.html, user_profile.html
+- **Content Views**: digest.html, articles_dashboard.html, categories.html
+- **Operations**: operations.html, rss_management.html
+- **Debug Tools**: debug_user_management.html
+- **Core Pages**: home.html, index.html, error.html
+
+### Static Assets (static/)
+- **Styling**: style.css
+- **JavaScript**: script.js
 
 ## Testing Strategy
 
-Each module and feature must be thoroughly tested upon creation to avoid multiple issues:
+Comprehensive test suite implemented in tests/ directory:
+- **RSS Feed Validation**: test_rss_validator.py
+- **Collector Module**: test_collector.py, test_incremental_collector.py
+- **Database Operations**: test_database.py
+- **AI Processing**: test_ai_adapters.py, test_enhanced_ai_processor.py
+- **User Interface**: test_user_interface.py, test_interactive_interface.py
+- **Email System**: test_email_system.py
 
-- **RSS Feed Validation**: Test each RSS endpoint for XML validity, accessibility, and data structure before integration
-- **Collector Module Testing**: Unit tests for feed parsing, AI processing pipeline, deduplication logic, and database storage
-- **User Interface Module Testing**: Test user preference handling, digest generation, output formatting, and error handling
-- **Integration Testing**: End-to-end testing of the complete pipeline from RSS feeds to final digest output
-- **AI Processing Testing**: Validate category classification accuracy, summary quality, and trend detection
-- **Database Testing**: Test data integrity, query performance, and storage/retrieval operations
-- **CLI Interface Testing**: Test all command-line arguments, error messages, and user interaction flows
+## Development Commands
+
+Common development and testing commands:
+- **Run Web Interface**: `python run_web_dev.py` (development) or `python run_web.py` (production)
+- **Execute Pipeline**: `python main.py`
+- **Run Tests**: `pytest tests/`
+- **Validate RSS Feeds**: `python -m src.rss_validator`
+- **Setup Cron Jobs**: `./setup_cron.sh`
 
 ## Development Status
 
-This appears to be a greenfield project - no existing code files found, only product requirements documentation.
+This is a **mature, feature-complete project** with:
+- ✅ Full implementation of both CLI and web interfaces
+- ✅ Comprehensive test suite
+- ✅ Production-ready configurations
+- ✅ Multi-provider AI integration
+- ✅ Background job processing
+- ✅ Email delivery system
+- ✅ Web-based administration
+- ✅ Monitoring and logging systems
+- ✅ Caching and performance optimization
