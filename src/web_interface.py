@@ -384,37 +384,44 @@ def create_user():
             # Validate input
             if not user_id:
                 flash('User ID is required', 'error')
-                return render_template('create_user.html', categories=AI_CATEGORIES)
+                return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
             
             if not email:
                 flash('Email is required', 'error')
-                return render_template('create_user.html', categories=AI_CATEGORIES)
+                return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
             
             if not selected_categories:
                 flash('At least one category must be selected', 'error')
-                return render_template('create_user.html', categories=AI_CATEGORIES)
+                return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
             
             # Validate email format
             import re
             email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
             if not re.match(email_pattern, email):
                 flash('Please enter a valid email address', 'error')
-                return render_template('create_user.html', categories=AI_CATEGORIES)
+                return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
             
             # Validate categories
             invalid_categories = [cat for cat in selected_categories if cat not in AI_CATEGORIES]
             if invalid_categories:
                 flash(f'Invalid categories: {", ".join(invalid_categories)}', 'error')
-                return render_template('create_user.html', categories=AI_CATEGORIES)
+                return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
             
+            digest_frequency = request.form.get('digest_frequency', 'daily')
+            preferred_output_format = request.form.get('preferred_output_format', 'email')
+            try:
+                articles_per_digest = max(5, min(50, int(request.form.get('articles_per_digest', '15'))))
+            except ValueError:
+                articles_per_digest = 15
+
             # Create user
             user_prefs = {
                 'user_id': user_id,
                 'email': email,
                 'selected_categories': selected_categories,
-                'digest_frequency': 'daily',
-                'articles_per_digest': 5,
-                'preferred_output_format': 'html'
+                'digest_frequency': digest_frequency,
+                'articles_per_digest': articles_per_digest,
+                'preferred_output_format': preferred_output_format
             }
             
             # Save to database
@@ -430,25 +437,42 @@ def create_user():
                 logger.info(f"User verification after insert: {verification}")
                 
                 if success and verification:
+                    # Save email delivery preferences
+                    try:
+                        from src.repositories.email_repository import EmailRepository, EmailPreferences
+                        email_repo = EmailRepository(DATABASE_PATH)
+                        email_prefs = EmailPreferences(
+                            user_id=user_id,
+                            email_enabled=True,
+                            delivery_frequency=digest_frequency,
+                            delivery_time=request.form.get('delivery_time', '21:00'),
+                            delivery_timezone=request.form.get('delivery_timezone', 'Asia/Kolkata'),
+                            email_format='html' if preferred_output_format in ('email', 'html') else 'text',
+                        )
+                        email_repo.save_email_preferences(email_prefs)
+                    except Exception as ep_error:
+                        logger.warning(f"Could not save email preferences for new user {user_id}: {ep_error}")
+
                     flash(f'User "{user_id}" created successfully!', 'success')
                     logger.info(f"User {user_id} created and verified successfully")
                     return redirect(url_for('home'))
                 else:
                     logger.error(f"Failed to insert user {user_id} into database. Success: {success}, Verification: {verification}")
                     flash('Failed to create user. Database insert failed.', 'error')
-                    return render_template('create_user.html', categories=AI_CATEGORIES)
+                    return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
             except Exception as db_error:
                 logger.error(f"Database error while creating user {user_id}: {db_error}", exc_info=True)
                 flash(f'Database error: {str(db_error)}', 'error')
-                return render_template('create_user.html', categories=AI_CATEGORIES)
+                return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
                 
         except Exception as e:
             logger.error(f"Error creating user {user_id}: {e}", exc_info=True)
             flash(f'An error occurred while creating the user: {str(e)}', 'error')
-            return render_template('create_user.html', categories=AI_CATEGORIES)
+            return render_template('create_user.html', categories={cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES})
     
     # GET request - show form
-    return render_template('create_user.html', categories=AI_CATEGORIES)
+    categories_dict = {cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES}
+    return render_template('create_user.html', categories=categories_dict)
 
 @app.route('/operations')
 def operations():
@@ -1152,6 +1176,9 @@ def edit_user(user_id: str):
                 flash(f'User {user_id} not found', 'error')
                 return redirect(url_for('user_management'))
             
+            preferred_output_format = request.form.get('preferred_output_format',
+                existing_prefs.get('preferred_output_format', 'email'))
+
             # Update user preferences
             updated_prefs = {
                 'user_id': user_id,
@@ -1159,7 +1186,7 @@ def edit_user(user_id: str):
                 'selected_categories': selected_categories,
                 'digest_frequency': digest_frequency,
                 'articles_per_digest': articles_count,
-                'preferred_output_format': existing_prefs.get('preferred_output_format', 'html'),
+                'preferred_output_format': preferred_output_format,
                 'feedback_history': existing_prefs.get('feedback_history', {})
             }
             
@@ -1175,6 +1202,28 @@ def edit_user(user_id: str):
                 logger.info(f"User verification after update: {verification}")
                 
                 if success and verification:
+                    # Save email delivery preferences
+                    try:
+                        from src.repositories.email_repository import EmailRepository, EmailPreferences
+                        email_repo = EmailRepository(DATABASE_PATH)
+                        existing_email_prefs = email_repo.get_email_preferences(user_id)
+                        email_prefs = EmailPreferences(
+                            user_id=user_id,
+                            email_enabled='email_enabled' in request.form,
+                            delivery_frequency=digest_frequency,
+                            delivery_time=request.form.get('delivery_time',
+                                existing_email_prefs.delivery_time if existing_email_prefs else '21:00'),
+                            delivery_timezone=request.form.get('delivery_timezone',
+                                existing_email_prefs.delivery_timezone if existing_email_prefs else 'UTC'),
+                            email_format='html' if preferred_output_format in ('email', 'html') else 'text',
+                            include_feedback_links='include_feedback_links' in request.form,
+                            personalized_subject='personalized_subject' in request.form,
+                            include_social_sharing=existing_email_prefs.include_social_sharing if existing_email_prefs else True,
+                        )
+                        email_repo.save_email_preferences(email_prefs)
+                    except Exception as ep_error:
+                        logger.warning(f"Could not save email preferences for {user_id}: {ep_error}")
+
                     flash(f'User "{user_id}" updated successfully!', 'success')
                     logger.info(f"User {user_id} updated successfully")
                     return redirect(url_for('user_management'))
@@ -1206,11 +1255,78 @@ def edit_user(user_id: str):
                 'icon': get_category_icon(category)
             }
         
-        return render_template('edit_user.html', user=user_prefs, categories=categories_dict, user_id=user_id)
+        # Load email preferences for pre-filling
+        from src.repositories.email_repository import EmailRepository
+        email_repo = EmailRepository(DATABASE_PATH)
+        email_prefs = email_repo.get_email_preferences(user_id)
+
+        return render_template('edit_user.html', user=user_prefs, categories=categories_dict,
+                               user_id=user_id, email_prefs=email_prefs)
     except Exception as e:
         logger.error(f"Error loading edit user page for {user_id}: {e}")
         flash(f'Error loading user data: {str(e)}', 'error')
         return redirect(url_for('user_management'))
+
+@app.route('/user-feeds/<user_id>', methods=['GET'])
+@security.rate_limit(max_requests=30, window_minutes=60)
+def user_feeds(user_id: str):
+    """Manage per-user custom RSS/Reddit feeds."""
+    user_prefs = db_manager.get_user_preferences(user_id)
+    if not user_prefs:
+        flash(f'User {user_id} not found', 'error')
+        return redirect(url_for('user_management'))
+    feeds = db_manager.get_user_custom_feeds(user_id)
+    categories_dict = {cat: {'icon': get_category_icon(cat)} for cat in AI_CATEGORIES}
+    return render_template('user_feeds.html', user_id=user_id, feeds=feeds,
+                           categories=categories_dict)
+
+
+@app.route('/api/user-feeds/<user_id>', methods=['POST'])
+@security.rate_limit(max_requests=20, window_minutes=60)
+def add_user_feed(user_id: str):
+    """Add a custom feed for a user."""
+    if not db_manager.get_user_preferences(user_id):
+        return jsonify({'success': False, 'message': 'User not found'}), 404
+    data = request.get_json() or {}
+    feed_url = data.get('feed_url', '').strip()
+    feed_title = data.get('feed_title', '').strip()
+    category = data.get('category', '').strip()
+
+    if not feed_url or not category:
+        return jsonify({'success': False, 'message': 'feed_url and category are required'}), 400
+    if category not in AI_CATEGORIES:
+        return jsonify({'success': False, 'message': f'Invalid category: {category}'}), 400
+
+    # Auto-expand Reddit shorthand: "r/investing" → full URL
+    if feed_url.startswith('r/') or feed_url.startswith('/r/'):
+        sub = feed_url.lstrip('/').split('/')[-1]
+        feed_url = f'https://www.reddit.com/r/{sub}/top.rss?t=week'
+        if not feed_title:
+            feed_title = f'r/{sub}'
+
+    ok = db_manager.add_user_custom_feed(user_id, feed_url, feed_title, category)
+    if ok:
+        return jsonify({'success': True, 'message': 'Feed added'})
+    return jsonify({'success': False, 'message': 'Feed already exists or could not be added'}), 400
+
+
+@app.route('/api/user-feeds/<user_id>/<int:feed_id>', methods=['DELETE'])
+@security.rate_limit(max_requests=20, window_minutes=60)
+def delete_user_feed(user_id: str, feed_id: int):
+    """Delete a custom feed for a user."""
+    ok = db_manager.delete_user_custom_feed(user_id, feed_id)
+    return jsonify({'success': ok})
+
+
+@app.route('/api/user-feeds/<user_id>/<int:feed_id>/toggle', methods=['POST'])
+@security.rate_limit(max_requests=20, window_minutes=60)
+def toggle_user_feed(user_id: str, feed_id: int):
+    """Toggle a custom feed active/inactive."""
+    data = request.get_json() or {}
+    is_active = bool(data.get('is_active', True))
+    ok = db_manager.toggle_user_custom_feed(user_id, feed_id, is_active)
+    return jsonify({'success': ok})
+
 
 @app.route('/api/debug-pipeline/<user_id>')
 @security.admin_required

@@ -173,12 +173,34 @@ class DigestGenerator:
         
         # Get more articles to allow for randomization and variety
         # Fetch from past 2 days to ensure fresh content variety
-        articles = self.db_manager.get_recent_articles_by_categories(categories, days=2, limit=article_count * 5)
-        
-        # If we don't have enough recent articles, fall back to all articles
+        # Collect from user's custom feeds first (on-demand, lightweight)
+        try:
+            custom_feeds = self.db_manager.get_user_custom_feeds(user_id)
+            active_custom = [f for f in custom_feeds if f.get('is_active', True)]
+            if active_custom:
+                from src.incremental_collector import IncrementalCollector
+                collector = IncrementalCollector(self.db_manager)
+                for feed in active_custom:
+                    collector.collect_from_single_feed(feed['feed_url'], feed['category'], max_articles=8)
+                logger.info(f"Collected from {len(active_custom)} custom feed(s) for {user_id}")
+        except Exception as cf_err:
+            logger.warning(f"Custom feed collection skipped for {user_id}: {cf_err}")
+
+        # Science articles can be up to 7 days old; everything else is 3 days
+        SCIENCE_CATEGORIES = ["Science & Discovery"]
+        science_cats = [c for c in categories if c in SCIENCE_CATEGORIES]
+        other_cats = [c for c in categories if c not in SCIENCE_CATEGORIES]
+
+        articles = []
+        if other_cats:
+            articles += self.db_manager.get_recent_articles_by_categories(other_cats, days=3, limit=article_count * 5)
+        if science_cats:
+            articles += self.db_manager.get_recent_articles_by_categories(science_cats, days=7, limit=article_count * 3)
+
+        # Fallback: widen window to 7 days for all categories (never unlimited)
         if len(articles) < article_count * 2:
-            logger.info(f"Only found {len(articles)} recent articles, fetching more from database")
-            articles = self.db_manager.get_articles_by_categories(categories, article_count * 4)
+            logger.info(f"Only found {len(articles)} recent articles, widening window to 7 days")
+            articles = self.db_manager.get_recent_articles_by_categories(categories, days=7, limit=article_count * 5)
         
         # CRITICAL: Deduplicate articles by ID first to prevent duplicate articles in digest
         seen_article_ids = set()

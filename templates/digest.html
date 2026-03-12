@@ -1,98 +1,73 @@
 
 {% extends "base.html" %}
-{% block title %}News Digest{% endblock %}
+{% block title %}News Digest — {{ user_id }}{% endblock %}
 {% block content %}
-    <div class="digest-container">
-        <h1>📰 Your News Digest for {{ user_id }}</h1>
-        
-        {% if digest and digest.categories %}
-            {% for category, articles in digest.categories.items() %}
-                <div class="category-section">
-                    <h2 class="category-title">{{ category }}</h2>
-                    {% for article in articles %}
-                        <div class="article-card">
-                            <h3 class="article-title">
-                                <a href="{{ article.source_link }}" target="_blank">{{ article.title }}</a>
-                            </h3>
-                            {% if article.author %}
-                                <p class="article-meta">By {{ article.author }}</p>
-                            {% endif %}
-                            <p class="article-summary">{{ article.ai_summary or article.original_summary }}</p>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        {% else %}
-            <div class="no-content">
-                <p>No articles found for this user. Please check if:</p>
-                <ul>
-                    <li>The user has selected categories</li>
-                    <li>There are articles in the database</li>
-                    <li>The user ID exists</li>
-                </ul>
-            </div>
-        {% endif %}
-    </div>
 
-    <style>
-        .digest-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .category-section {
-            margin-bottom: 40px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            background: #f9f9f9;
-        }
-        
-        .category-title {
-            color: #333;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .article-card {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .article-title {
-            margin: 0 0 10px 0;
-        }
-        
-        .article-title a {
-            color: #2196F3;
-            text-decoration: none;
-        }
-        
-        .article-title a:hover {
-            text-decoration: underline;
-        }
-        
-        .article-meta {
-            color: #666;
-            font-size: 14px;
-            margin: 0 0 10px 0;
-            font-style: italic;
-        }
-        
-        .article-summary {
-            line-height: 1.6;
-            color: #444;
-        }
-        
-        .no-content {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-        }
-    </style>
+<style>
+  .digest-header { margin-bottom: 2rem; }
+  .digest-meta { color: #6c757d; font-size: 0.9rem; }
+  .category-section { margin-bottom: 2.5rem; }
+  .category-title { font-size: 1.25rem; font-weight: 700; padding: 0.5rem 0; border-bottom: 2px solid #dee2e6; margin-bottom: 1rem; }
+  .article-card { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #f0f0f0; }
+  .article-card:last-child { border-bottom: none; }
+  .article-thumb { flex-shrink: 0; width: 80px; height: 80px; object-fit: cover; border-radius: 6px; }
+  .article-thumb-placeholder { flex-shrink: 0; width: 80px; height: 80px; background: #f0f0f0; border-radius: 6px; }
+  .article-body { flex: 1; min-width: 0; }
+  .article-title { font-size: 1rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.25rem; }
+  .article-title a { color: #1a1a1a; text-decoration: none; }
+  .article-title a:hover { text-decoration: underline; color: #0d6efd; }
+  .article-meta { font-size: 0.78rem; color: #888; margin-bottom: 0.4rem; }
+  .article-summary { font-size: 0.88rem; color: #444; line-height: 1.5; }
+  .trending-badge { font-size: 0.72rem; background: #fff3cd; color: #856404; border: 1px solid #ffc107; border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: middle; }
+  .no-articles { color: #888; font-style: italic; padding: 1rem 0; }
+</style>
+
+<div class="digest-header">
+  <h1 class="mb-1">News Digest for {{ user_id }}</h1>
+  <div class="digest-meta">
+    {{ digest.total_articles }} articles &nbsp;&middot;&nbsp;
+    Generated {{ digest.generated_at[:19] | replace('T', ' ') }}
+  </div>
+</div>
+
+{% if digest.categories %}
+  {% for category, articles in digest.categories.items() %}
+    <div class="category-section">
+      <div class="category-title">{{ category }}</div>
+      {% if articles %}
+        {% for article in articles %}
+          <div class="article-card">
+            {% if article.image_url and article.image_url[:4] == 'http' %}
+              <img class="article-thumb" src="{{ article.image_url }}" alt="" loading="lazy" onerror="this.style.display='none'">
+            {% else %}
+              <div class="article-thumb-placeholder"></div>
+            {% endif %}
+            <div class="article-body">
+              <div class="article-title">
+                <a href="{{ article.source_link }}" target="_blank" rel="noopener">{{ article.title }}</a>
+                {% if article.trending_flag %}
+                  <span class="trending-badge">Trending</span>
+                {% endif %}
+              </div>
+              <div class="article-meta">
+                {% if article.author %}{{ article.author }} &nbsp;&middot;&nbsp; {% endif %}
+                {% if article.publication_date %}{{ article.publication_date[:10] }}{% elif article.date_collected %}{{ article.date_collected[:10] }}{% endif %}
+              </div>
+              <div class="article-summary">
+                {{ article.ai_summary or article.original_summary or '' }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="no-articles">No articles in this category.</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="alert alert-warning">No articles found for your selected categories. Try running the collector first.</div>
+{% endif %}
+
+<div class="digest-meta mt-4 mb-4">Generated at {{ digest.generated_at[:19] | replace('T', ' ') }}</div>
+
 {% endblock %}

@@ -219,6 +219,22 @@ class DatabaseManager:
                 )
             ''')
             
+            # Per-user custom feeds (RSS/Reddit subscriptions)
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS user_custom_feeds (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id TEXT NOT NULL,
+                    feed_url TEXT NOT NULL,
+                    feed_title TEXT,
+                    category TEXT NOT NULL,
+                    is_active BOOLEAN DEFAULT TRUE,
+                    date_added TEXT DEFAULT CURRENT_TIMESTAMP,
+                    UNIQUE(user_id, feed_url),
+                    FOREIGN KEY(user_id) REFERENCES user_preferences(user_id) ON DELETE CASCADE
+                )
+            ''')
+            cursor.execute('CREATE INDEX IF NOT EXISTS idx_user_custom_feeds_user ON user_custom_feeds(user_id)')
+
             # Create indexes for email tables
             cursor.execute('CREATE INDEX IF NOT EXISTS idx_email_deliveries_user ON email_deliveries(user_id)')
             cursor.execute('CREATE INDEX IF NOT EXISTS idx_email_deliveries_status ON email_deliveries(delivery_status)')
@@ -1666,3 +1682,63 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Error getting stock image stats: {e}")
             return {}
+
+    # ── User Custom Feed Methods ──────────────────────────────────────────────
+
+    def add_user_custom_feed(self, user_id: str, feed_url: str,
+                              feed_title: str, category: str) -> bool:
+        """Add a custom RSS/Reddit feed for a specific user."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                conn.execute(
+                    'INSERT OR IGNORE INTO user_custom_feeds (user_id, feed_url, feed_title, category) VALUES (?,?,?,?)',
+                    (user_id, feed_url.strip(), feed_title.strip() if feed_title else None, category)
+                )
+                return conn.execute(
+                    'SELECT COUNT(*) FROM user_custom_feeds WHERE user_id=? AND feed_url=?',
+                    (user_id, feed_url.strip())
+                ).fetchone()[0] > 0
+        except Exception as e:
+            logger.error(f"Error adding custom feed for {user_id}: {e}")
+            return False
+
+    def get_user_custom_feeds(self, user_id: str) -> List[Dict]:
+        """Get all active custom feeds for a user."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                rows = conn.execute(
+                    'SELECT id, feed_url, feed_title, category, is_active, date_added FROM user_custom_feeds WHERE user_id=? ORDER BY date_added DESC',
+                    (user_id,)
+                ).fetchall()
+                return [{'id': r[0], 'feed_url': r[1], 'feed_title': r[2] or r[1],
+                          'category': r[3], 'is_active': bool(r[4]), 'date_added': r[5]}
+                        for r in rows]
+        except Exception as e:
+            logger.error(f"Error getting custom feeds for {user_id}: {e}")
+            return []
+
+    def delete_user_custom_feed(self, user_id: str, feed_id: int) -> bool:
+        """Delete a custom feed belonging to a user."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                conn.execute(
+                    'DELETE FROM user_custom_feeds WHERE id=? AND user_id=?',
+                    (feed_id, user_id)
+                )
+                return True
+        except Exception as e:
+            logger.error(f"Error deleting custom feed {feed_id} for {user_id}: {e}")
+            return False
+
+    def toggle_user_custom_feed(self, user_id: str, feed_id: int, is_active: bool) -> bool:
+        """Enable or disable a custom feed for a user."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                conn.execute(
+                    'UPDATE user_custom_feeds SET is_active=? WHERE id=? AND user_id=?',
+                    (1 if is_active else 0, feed_id, user_id)
+                )
+                return True
+        except Exception as e:
+            logger.error(f"Error toggling custom feed {feed_id} for {user_id}: {e}")
+            return False

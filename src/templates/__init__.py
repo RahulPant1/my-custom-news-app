@@ -2,7 +2,7 @@
 
 from .email_templates import (
     EmailTemplate,
-    NewsDigestTemplate,
+    NewspaperTemplate,
     EmailTemplateManager,
     render_email_template,
     MobileCardTemplate
@@ -10,7 +10,7 @@ from .email_templates import (
 
 __all__ = [
     'EmailTemplate',
-    'NewsDigestTemplate', 
+    'NewspaperTemplate', 
     'EmailTemplateManager',
     'render_email_template',
     'MobileCardTemplate'

@@ -34,7 +34,7 @@ class EmailTemplate(ABC):
             "Environment & Climate": "#c471f5",  # Purple
             "Good Vibes (Positive News)": "#f6d365",  # Yellow-orange
             "Pop Culture & Lifestyle": "#fda085",  # Orange-pink
-            "For Young Minds (Youth-Focused)": "#a8edea",  # Mint
+            "AI & Machine Learning": "#00d2ff",  # Cyan-blue
             "DIY, Skills & How-To": "#ffd89b"  # Light orange
         }
     
@@ -47,14 +47,14 @@ class EmailTemplate(ABC):
         """Get emoji for category."""
         emojis = {
             "Science & Discovery": "🔬",
-            "Technology & Gadgets": "💻", 
+            "Technology & Gadgets": "💻",
             "Health & Wellness": "🏥",
             "Business & Finance": "💼",
             "Global Affairs": "🌍",
             "Environment & Climate": "🌱",
             "Good Vibes (Positive News)": "😊",
             "Pop Culture & Lifestyle": "🎭",
-            "For Young Minds (Youth-Focused)": "🎓",
+            "AI & Machine Learning": "🤖",
             "DIY, Skills & How-To": "🔧"
         }
         return emojis.get(category, "📰")
@@ -1114,12 +1114,144 @@ class MobileCardTemplate(EmailTemplate):
     
 
 
+class MinimalTemplate(EmailTemplate):
+    """Clean minimal digest template — high readability, no clutter."""
+
+    def __init__(self):
+        self.required_fields = [
+            'user_id', 'categories', 'user_prefs', 'email_prefs',
+            'highlights', 'base_url', 'unsubscribe_url'
+        ]
+
+    def get_required_fields(self) -> List[str]:
+        return self.required_fields
+
+    def render(self, data: Dict[str, Any]) -> str:
+        user_id = data.get('user_id', 'Reader')
+        base_url = data.get('base_url', '')
+        unsubscribe_url = data.get('unsubscribe_url', f"{base_url}/unsubscribe")
+        feedback_url = f"{base_url}/feedback"
+        now = datetime.now().strftime("%B %d, %Y")
+        categories = data.get('categories', {})
+        highlights = data.get('highlights', {})
+        one_liner = highlights.get('one_liner', '') if highlights else ''
+
+        sections_html = ""
+        for category, articles in categories.items():
+            if not articles:
+                continue
+            sections_html += self._render_category_section(
+                category, articles, user_id, base_url,
+                data.get('delivery_id', '')
+            )
+
+        highlights_html = ""
+        if one_liner:
+            highlights_html = f"""
+            <div style="background:#f8f9fa;border-left:3px solid #555;padding:10px 16px;margin:0 0 24px 0;font-size:13px;color:#555;font-style:italic;">
+                {one_liner}
+            </div>"""
+
+        return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest</title>
+</head>
+<body style="margin:0;padding:0;background:#f0f0f0;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;">
+    <div style="max-width:620px;margin:24px auto;background:#ffffff;">
+
+        <!-- Header -->
+        <div style="padding:16px 24px;border-bottom:1px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:15px;font-weight:700;color:#1a1a1a;letter-spacing:-0.3px;">📰 Daily Digest</span>
+            <span style="font-size:12px;color:#999;">{now}</span>
+        </div>
+
+        <!-- Body -->
+        <div style="padding:20px 24px;">
+            {highlights_html}
+            {sections_html}
+        </div>
+
+        <!-- Footer -->
+        <div style="padding:14px 24px;border-top:1px solid #e5e5e5;text-align:center;font-size:11px;color:#aaa;">
+            <a href="{unsubscribe_url}?user_id={user_id}" style="color:#aaa;text-decoration:none;">Unsubscribe</a>
+            &nbsp;·&nbsp;
+            <a href="{feedback_url}?user_id={user_id}" style="color:#aaa;text-decoration:none;">Send Feedback</a>
+        </div>
+
+    </div>
+</body>
+</html>"""
+
+    def _render_category_section(self, category: str, articles: List[Dict],
+                                  user_id: str, base_url: str, delivery_id: str) -> str:
+        color = self._get_category_color(category)
+        emoji = self._get_category_emoji(category)
+        count = len(articles)
+        articles_html = "".join(
+            self._render_article_row(a, category, color, user_id, base_url, delivery_id)
+            for a in articles
+        )
+        return f"""
+        <div style="margin-bottom:28px;">
+            <div style="border-left:3px solid {color};padding:6px 12px;margin-bottom:12px;background:#f8f9fa;">
+                <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#555;">
+                    {emoji} {category} <span style="font-weight:400;color:#999;">({count})</span>
+                </span>
+            </div>
+            {articles_html}
+        </div>"""
+
+    def _render_article_row(self, article: Dict, category: str, color: str,
+                             user_id: str, base_url: str, delivery_id: str) -> str:
+        title = article.get('title', 'Untitled')
+        source_link = article.get('source_link', '#')
+        summary = article.get('ai_summary') or article.get('original_summary') or ''
+        if len(summary) > 280:
+            summary = summary[:277] + '...'
+        author = article.get('author', '')
+        pub_date = article.get('publication_date', '')
+        if pub_date and len(str(pub_date)) > 10:
+            pub_date = str(pub_date)[:10]
+        image_url = article.get('image_url', '')
+        article_id = article.get('id', '')
+
+        meta_parts = [p for p in [author, pub_date] if p]
+        meta_line = ' · '.join(meta_parts)
+
+        thumbnail_html = ""
+        if image_url and image_url.startswith(('http://', 'https://')):
+            thumbnail_html = f"""<img src="{image_url}" alt="" loading="lazy"
+                style="width:72px;height:72px;object-fit:cover;border-radius:4px;flex-shrink:0;" />"""
+
+        feedback_base = f"{base_url}/feedback?user_id={user_id}&article_id={article_id}&delivery_id={delivery_id}"
+
+        return f"""
+        <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eeeeee;align-items:flex-start;">
+            {thumbnail_html}
+            <div style="flex:1;min-width:0;">
+                <a href="{source_link}" style="font-size:15px;font-weight:600;color:#1a1a1a;text-decoration:none;line-height:1.4;display:block;"
+                   onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">{title}</a>
+                <div style="font-size:11px;color:#999;margin:3px 0 6px 0;">{meta_line}</div>
+                <div style="font-size:13px;color:#555;line-height:1.6;">{summary}</div>
+                <div style="margin-top:8px;display:flex;gap:12px;align-items:center;">
+                    <a href="{source_link}" style="font-size:12px;color:{color};font-weight:600;text-decoration:none;">Read →</a>
+                    <a href="{feedback_base}&type=like" style="font-size:11px;color:#bbb;text-decoration:none;">👍</a>
+                    <a href="{feedback_base}&type=dislike" style="font-size:11px;color:#bbb;text-decoration:none;">👎</a>
+                </div>
+            </div>
+        </div>"""
+
+
 class EmailTemplateManager:
     """Manages email templates with caching and validation."""
     
     def __init__(self):
         self._templates = {
-            'newspaper': NewspaperTemplate(),         # Classic newspaper
+            'minimal': MinimalTemplate(),            # Clean minimal (default)
+            'newspaper': NewspaperTemplate(),        # Classic newspaper
             'mobile_card': MobileCardTemplate()     # Mobile-first card layout with images
         }
     
@@ -1152,13 +1284,10 @@ class EmailTemplateManager:
             if has_images:
                 break
         
-        # If we have images, prefer the mobile_card template (80% chance)
-        if has_images and 'mobile_card' in template_names and random.random() < 0.8:
-            selected_template = 'mobile_card'
-        else:
-            selected_template = random.choice(template_names)
-        
-        logger.info(f"Randomly selected template: {selected_template} (has_images: {has_images})")
+        # Default to minimal template for clean, readable digests
+        selected_template = 'minimal'
+
+        logger.info(f"Using template: {selected_template} (has_images: {has_images})")
         return self.render_template(selected_template, data)
     
     def get_random_template_name(self) -> str:

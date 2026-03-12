@@ -225,16 +225,15 @@ class RefactoredEmailDeliveryManager:
                                         for article in articles if article.get('trending_flag')),
                     'total_articles': sum(len(articles) for articles in digest_data.get('categories', {}).values()),
                     'categories_count': len(digest_data.get('categories', {})),
-                    'has_images': any(article.get('image_url', '').startswith(('http://', 'https://'))
-                                    for articles in digest_data.get('categories', {}).values() 
+                    'has_images': any((article.get('image_url') or '').startswith(('http://', 'https://'))
+                                    for articles in digest_data.get('categories', {}).values()
                                     for article in articles)
                 },
                 'unsubscribe_url': f"http://localhost:5000/unsubscribe/{user_id}",
                 'delivery_id': f"preview_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
             }
             
-            # Use mobile_card template for preview (best looking)
-            html_content = template_manager.render_template('mobile_card', template_data)
+            html_content = template_manager.render_template('minimal', template_data)
             
             return html_content
             

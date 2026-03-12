@@ -386,6 +386,21 @@ class IncrementalCollector:
         logger.info(f"Incremental collection complete: {total_stats}")
         return total_stats
     
+    def collect_from_single_feed(self, feed_url: str, category: str,
+                                  max_articles: int = 10) -> Dict[str, int]:
+        """Collect articles from a single feed URL (used for per-user custom feeds).
+
+        Reuses process_feed_incrementally which already handles deduplication,
+        image extraction, and database insertion.
+        """
+        try:
+            stats = self.process_feed_incrementally(feed_url, category, max_articles)
+            logger.info(f"Custom feed collected {feed_url}: {stats}")
+            return stats
+        except Exception as e:
+            logger.error(f"Error collecting custom feed {feed_url}: {e}")
+            return {'new': 0, 'updated': 0, 'skipped': 0, 'errors': 1}
+
     def get_collection_summary(self) -> Dict:
         """Get comprehensive collection summary."""
         db_stats = self.db_manager.get_incremental_stats()

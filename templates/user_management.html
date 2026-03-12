@@ -543,8 +543,11 @@
                                     📤 Send
                                 </button>
                                 {% endif %}
-                                <button data-action="edit-user" 
-                                        data-user-id="{{ user.user_id }}" 
+                                <a href="/user-feeds/{{ user.user_id }}" class="btn btn-secondary btn-small">
+                                    📡 Feeds
+                                </a>
+                                <button data-action="edit-user"
+                                        data-user-id="{{ user.user_id }}"
                                         class="btn btn-secondary btn-small">
                                     ✏️ Edit
                                 </button>

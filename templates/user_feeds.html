@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% block title %}My Custom Feeds — {{ user_id }}{% endblock %}
+{% block content %}
+<style>
+.card { background: #fff; border-radius: 8px; padding: 20px; border: 1px solid #dee2e6; margin-bottom: 16px; }
+.card h3 { margin: 0 0 12px 0; font-size: 1rem; color: #2c3e50; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr auto auto; gap: 10px; align-items: end; }
+.form-group { margin-bottom: 0; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #495057; margin-bottom: 4px; }
+.form-control { width: 100%; padding: 8px 12px; border: 1px solid #ced4da; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box; }
+.btn { padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; }
+.btn-primary { background: #007bff; color: white; }
+.btn-danger { background: #dc3545; color: white; }
+.btn-secondary { background: #6c757d; color: white; text-decoration: none; display: inline-block; }
+.btn:hover { opacity: 0.9; }
+.hint { font-size: 0.78rem; color: #6c757d; margin-top: 4px; }
+.feeds-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.feeds-table th, .feeds-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #dee2e6; font-size: 0.9rem; }
+.feeds-table th { background: #f8f9fa; font-weight: 600; color: #495057; }
+.feeds-table tr:hover td { background: #f8f9fa; }
+.feed-url { color: #007bff; font-size: 0.8rem; word-break: break-all; max-width: 280px; display: block; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+.badge-active { background: #d4edda; color: #155724; }
+.badge-inactive { background: #f8d7da; color: #721c24; }
+.toggle-switch { cursor: pointer; }
+.alert { padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; }
+.alert-info { background: #e8f4fd; color: #004085; border: 1px solid #bee3f8; }
+.empty-state { text-align: center; padding: 30px; color: #6c757d; }
+#statusMsg { display: none; padding: 10px 16px; border-radius: 6px; margin-bottom: 12px; }
+#statusMsg.success { background: #d4edda; color: #155724; display: block; }
+#statusMsg.error { background: #f8d7da; color: #721c24; display: block; }
+@media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr 1fr; }
+    .feeds-table { font-size: 0.8rem; }
+}
+</style>
+
+<div style="max-width: 900px; margin: 0 auto; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h1 style="margin: 0; color: #2c3e50;">📡 Custom Feeds — {{ user_id }}</h1>
+        <a href="/edit-user/{{ user_id }}" class="btn btn-secondary">← Back to Settings</a>
+    </div>
+
+    <div id="statusMsg"></div>
+
+    <div class="alert alert-info">
+        <strong>💡 Add your own sources</strong> — any RSS/Atom feed or Reddit subreddit.
+        These supplement the curated global feeds and are unique to your account.<br>
+        <span style="font-size:0.85rem;">
+            Examples: <code>https://simonwillison.net/atom/everything/</code> &nbsp;|&nbsp;
+            <code>r/MachineLearning</code> &nbsp;|&nbsp;
+            <code>r/personalfinance</code>
+        </span>
+    </div>
+
+    <!-- Add Feed Form -->
+    <div class="card">
+        <h3>➕ Add a Feed</h3>
+        <div class="form-row">
+            <div class="form-group" style="grid-column: 1 / -1; grid-template-columns: 2fr 1fr 1fr; display: grid; gap: 10px;">
+                <div>
+                    <label for="feedUrl">Feed URL or Subreddit</label>
+                    <input type="text" class="form-control" id="feedUrl"
+                           placeholder="https://example.com/feed.xml  or  r/MachineLearning">
+                    <div class="hint">For Reddit: enter <code>r/subreddit</code> and it will be auto-converted.</div>
+                </div>
+                <div>
+                    <label for="feedCategory">Category</label>
+                    <select class="form-control" id="feedCategory">
+                        {% for category, info in categories.items() %}
+                        <option value="{{ category }}">{{ info.icon }} {{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="feedTitle">Title (optional)</label>
+                    <input type="text" class="form-control" id="feedTitle"
+                           placeholder="e.g. Simon Willison's Blog">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 12px;">
+            <button class="btn btn-primary" onclick="addFeed()">Add Feed</button>
+        </div>
+    </div>
+
+    <!-- Feed List -->
+    <div class="card">
+        <h3>📋 Your Custom Feeds
+            <span style="font-weight: 400; font-size: 0.85rem; color: #6c757d;">({{ feeds|length }})</span>
+        </h3>
+
+        {% if feeds %}
+        <table class="feeds-table" id="feedsTable">
+            <thead>
+                <tr>
+                    <th>Feed</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Added</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feed in feeds %}
+                <tr id="feed-row-{{ feed.id }}">
+                    <td>
+                        <strong style="font-size: 0.9rem;">{{ feed.feed_title }}</strong>
+                        <a href="{{ feed.feed_url }}" class="feed-url" target="_blank" rel="noopener">{{ feed.feed_url }}</a>
+                    </td>
+                    <td>{{ feed.category }}</td>
+                    <td>
+                        <span class="badge {% if feed.is_active %}badge-active{% else %}badge-inactive{% endif %}"
+                              id="badge-{{ feed.id }}">
+                            {% if feed.is_active %}Active{% else %}Paused{% endif %}
+                        </span>
+                    </td>
+                    <td style="white-space: nowrap; font-size: 0.8rem; color: #6c757d;">
+                        {{ feed.date_added[:10] if feed.date_added else '' }}
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary toggle-switch" style="font-size:0.8rem; padding:4px 10px;"
+                                onclick="toggleFeed({{ feed.id }}, {{ 'false' if feed.is_active else 'true' }})"
+                                id="toggle-btn-{{ feed.id }}">
+                            {% if feed.is_active %}Pause{% else %}Enable{% endif %}
+                        </button>
+                        &nbsp;
+                        <button class="btn btn-danger" style="font-size:0.8rem; padding:4px 10px;"
+                                onclick="deleteFeed({{ feed.id }}, '{{ feed.feed_title | e }}')">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty-state">
+            <p>No custom feeds yet. Add your first one above.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+const USER_ID = {{ user_id | tojson }};
+
+function showStatus(msg, type) {
+    const el = document.getElementById('statusMsg');
+    el.textContent = msg;
+    el.className = type;
+    setTimeout(() => { el.className = ''; el.style.display = 'none'; }, 4000);
+}
+
+async function addFeed() {
+    const url = document.getElementById('feedUrl').value.trim();
+    const category = document.getElementById('feedCategory').value;
+    const title = document.getElementById('feedTitle').value.trim();
+
+    if (!url) { showStatus('Please enter a feed URL or subreddit.', 'error'); return; }
+
+    const resp = await fetch(`/api/user-feeds/${USER_ID}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({feed_url: url, category, feed_title: title})
+    });
+    const data = await resp.json();
+    if (data.success) {
+        showStatus('Feed added! Reload to see it in the list.', 'success');
+        document.getElementById('feedUrl').value = '';
+        document.getElementById('feedTitle').value = '';
+        setTimeout(() => window.location.reload(), 1200);
+    } else {
+        showStatus(data.message || 'Could not add feed.', 'error');
+    }
+}
+
+async function deleteFeed(feedId, title) {
+    if (!confirm(`Delete "${title}"?`)) return;
+    const resp = await fetch(`/api/user-feeds/${USER_ID}/${feedId}`, {method: 'DELETE'});
+    const data = await resp.json();
+    if (data.success) {
+        document.getElementById(`feed-row-${feedId}`)?.remove();
+        showStatus('Feed deleted.', 'success');
+    } else {
+        showStatus('Could not delete feed.', 'error');
+    }
+}
+
+async function toggleFeed(feedId, makeActive) {
+    const resp = await fetch(`/api/user-feeds/${USER_ID}/${feedId}/toggle`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({is_active: makeActive})
+    });
+    const data = await resp.json();
+    if (data.success) {
+        const badge = document.getElementById(`badge-${feedId}`);
+        const btn = document.getElementById(`toggle-btn-${feedId}`);
+        if (makeActive) {
+            badge.textContent = 'Active'; badge.className = 'badge badge-active';
+            btn.textContent = 'Pause'; btn.setAttribute('onclick', `toggleFeed(${feedId}, false)`);
+        } else {
+            badge.textContent = 'Paused'; badge.className = 'badge badge-inactive';
+            btn.textContent = 'Enable'; btn.setAttribute('onclick', `toggleFeed(${feedId}, true)`);
+        }
+    }
+}
+
+// Allow pressing Enter in URL field to add
+document.getElementById('feedUrl')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') addFeed();
+});
+</script>
+{% endblock %}

@@ -344,8 +344,7 @@ Make it engaging, specific, and under 60 characters."""
             'delivery_id': delivery_id
         }
         
-        # Use random template selection for variety
-        return render_email_template('random', template_data)
+        return render_email_template('minimal', template_data)
     
     def _extract_highlights(self, digest_data: Dict, user_prefs: Dict = None) -> Dict:
         """Extract highlights using the one-liner service."""
